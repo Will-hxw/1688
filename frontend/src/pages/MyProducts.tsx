@@ -1,0 +1,204 @@
+import { useState, useEffect } from 'react'
+import { Card, Table, Button, Space, Tag, Modal, Form, Input, InputNumber, Select, message, Popconfirm } from 'antd'
+import { getMyProducts, updateProduct, deleteProduct } from '../api/product'
+import type { Product, UpdateProductParams } from '../api/product'
+
+const { TextArea } = Input
+const { Option } = Select
+
+const categories = ['电子产品', '书籍教材', '生活用品', '服饰鞋包', '运动户外', '其他']
+
+const statusMap: Record<string, { text: string; color: string }> = {
+  ON_SALE: { text: '在售', color: 'green' },
+  SOLD: { text: '已售', color: 'orange' },
+}
+
+const MyProducts = () => {
+  const [products, setProducts] = useState<Product[]>([])
+  const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [editModalVisible, setEditModalVisible] = useState(false)
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null)
+  const [form] = Form.useForm()
+
+  const fetchProducts = async () => {
+    setLoading(true)
+    try {
+      const result = await getMyProducts(page, 10)
+      setProducts(result.list)
+      setTotal(result.total)
+    } catch {
+      // 错误已在拦截器中处理
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [page])
+
+  const handleEdit = (product: Product) => {
+    setEditingProduct(product)
+    form.setFieldsValue({
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      category: product.category,
+    })
+    setEditModalVisible(true)
+  }
+
+  const handleEditSubmit = async (values: UpdateProductParams) => {
+    if (!editingProduct) return
+    try {
+      await updateProduct(editingProduct.id, values)
+      message.success('更新成功')
+      setEditModalVisible(false)
+      fetchProducts()
+    } catch {
+      // 错误已在拦截器中处理
+    }
+  }
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteProduct(id)
+      message.success('删除成功')
+      fetchProducts()
+    } catch {
+      // 错误已在拦截器中处理
+    }
+  }
+
+  const columns = [
+    {
+      title: '图片',
+      dataIndex: 'imageUrl',
+      width: 80,
+      render: (url: string) => (
+        <img src={url || '/placeholder.png'} alt="" style={{ width: 60, height: 60, objectFit: 'cover' }} />
+      ),
+    },
+    {
+      title: '商品名称',
+      dataIndex: 'name',
+    },
+    {
+      title: '价格',
+      dataIndex: 'price',
+      render: (price: number) => <span style={{ color: '#ff6600' }}>¥{price}</span>,
+    },
+    {
+      title: '分类',
+      dataIndex: 'category',
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      render: (status: string) => {
+        const config = statusMap[status] || { text: status, color: 'default' }
+        return <Tag color={config.color}>{config.text}</Tag>
+      },
+    },
+    {
+      title: '发布时间',
+      dataIndex: 'createdAt',
+      render: (time: string) => new Date(time).toLocaleString(),
+    },
+    {
+      title: '操作',
+      render: (_: unknown, record: Product) => (
+        <Space>
+          <Button 
+            type="link" 
+            onClick={() => handleEdit(record)}
+            disabled={record.status !== 'ON_SALE'}
+          >
+            编辑
+          </Button>
+          <Popconfirm
+            title="确定删除该商品吗？"
+            onConfirm={() => handleDelete(record.id)}
+            disabled={record.status !== 'ON_SALE'}
+          >
+            <Button 
+              type="link" 
+              danger
+              disabled={record.status !== 'ON_SALE'}
+            >
+              删除
+            </Button>
+          </Popconfirm>
+        </Space>
+      ),
+    },
+  ]
+
+  return (
+    <Card title="我的商品">
+      <Table
+        dataSource={products}
+        columns={columns}
+        rowKey="id"
+        loading={loading}
+        pagination={{
+          current: page,
+          total,
+          pageSize: 10,
+          onChange: setPage,
+        }}
+      />
+
+      <Modal
+        title="编辑商品"
+        open={editModalVisible}
+        onCancel={() => setEditModalVisible(false)}
+        footer={null}
+      >
+        <Form form={form} layout="vertical" onFinish={handleEditSubmit}>
+          <Form.Item
+            name="name"
+            label="商品名称"
+            rules={[{ required: true, message: '请输入商品名称' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="description"
+            label="商品描述"
+            rules={[{ required: true, message: '请输入商品描述' }]}
+          >
+            <TextArea rows={3} />
+          </Form.Item>
+          <Form.Item
+            name="price"
+            label="价格"
+            rules={[{ required: true, message: '请输入价格' }]}
+          >
+            <InputNumber style={{ width: '100%' }} prefix="¥" precision={2} />
+          </Form.Item>
+          <Form.Item
+            name="category"
+            label="分类"
+            rules={[{ required: true, message: '请选择分类' }]}
+          >
+            <Select>
+              {categories.map(cat => (
+                <Option key={cat} value={cat}>{cat}</Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" block>
+              保存
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </Card>
+  )
+}
+
+export default MyProducts

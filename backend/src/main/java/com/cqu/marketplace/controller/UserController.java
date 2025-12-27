@@ -1,0 +1,42 @@
+package com.cqu.marketplace.controller;
+
+import com.cqu.marketplace.common.PageResult;
+import com.cqu.marketplace.common.Result;
+import com.cqu.marketplace.service.UserService;
+import com.cqu.marketplace.vo.product.ProductVO;
+import com.cqu.marketplace.vo.user.UserVO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * 用户控制器
+ */
+@RestController
+@RequestMapping("/api/users")
+@RequiredArgsConstructor
+public class UserController {
+    
+    private final UserService userService;
+    
+    /**
+     * 获取当前用户信息
+     */
+    @GetMapping("/me")
+    public Result<UserVO> getCurrentUser(@AuthenticationPrincipal Long userId) {
+        UserVO user = userService.getCurrentUser(userId);
+        return Result.success(user);
+    }
+    
+    /**
+     * 获取我的商品列表
+     */
+    @GetMapping("/me/products")
+    public Result<PageResult<ProductVO>> getMyProducts(
+            @AuthenticationPrincipal Long userId,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageResult<ProductVO> result = userService.getMyProducts(userId, page, pageSize);
+        return Result.success(result);
+    }
+}
