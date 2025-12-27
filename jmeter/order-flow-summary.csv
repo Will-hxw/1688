@@ -1,0 +1,301 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1766834312778,38,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-4,,false,,2579,1182,12,12,null,0,802,1
+1766834312778,11,1-卖家登录,401,,50并发-确认收货+评价流程 1-4,text,false,,517,231,4,4,http://localhost:8080/api/auth/login,11,0,1
+1766834312790,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-4,text,false,发货操作失败,515,218,4,4,http://localhost:8080/api/orders/4/ship,4,0,0
+1766834313526,7,3-买家登录,401,,50并发-确认收货+评价流程 1-4,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,7,0,0
+1766834312977,47,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-6,,false,,2579,1182,12,12,null,0,595,0
+1766834312978,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-6,text,false,,517,231,6,6,http://localhost:8080/api/auth/login,5,0,0
+1766834313534,4,4-买家确认收货,401,,50并发-确认收货+评价流程 1-4,text,false,确认收货操作失败,515,221,11,11,http://localhost:8080/api/orders/4/receive,4,0,0
+1766834312984,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-6,text,false,发货操作失败,515,218,6,6,http://localhost:8080/api/orders/6/ship,3,0,0
+1766834313569,12,5-买家评价,401,,50并发-确认收货+评价流程 1-4,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,12,0,0
+1766834313547,11,3-买家登录,401,,50并发-确认收货+评价流程 1-6,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,11,0,0
+1766834313559,10,4-买家确认收货,401,,50并发-确认收货+评价流程 1-6,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/6/receive,10,0,0
+1766834313570,18,5-买家评价,401,,50并发-确认收货+评价流程 1-6,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,18,0,0
+1766834313175,54,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-8,,false,,2579,1182,12,12,null,0,389,1
+1766834313176,8,1-卖家登录,401,,50并发-确认收货+评价流程 1-8,text,false,,517,231,8,8,http://localhost:8080/api/auth/login,7,0,1
+1766834313184,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-8,text,false,发货操作失败,515,218,8,8,http://localhost:8080/api/orders/8/ship,5,0,0
+1766834313547,13,3-买家登录,401,,50并发-确认收货+评价流程 1-8,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,13,0,0
+1766834313561,8,4-买家确认收货,401,,50并发-确认收货+评价流程 1-8,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/8/receive,8,0,0
+1766834313571,20,5-买家评价,401,,50并发-确认收货+评价流程 1-8,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,20,0,0
+1766834312878,56,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-5,,false,,2579,1182,12,12,null,0,684,5
+1766834312878,10,1-卖家登录,401,,50并发-确认收货+评价流程 1-5,text,false,,517,231,5,5,http://localhost:8080/api/auth/login,10,0,5
+1766834312888,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-5,text,false,发货操作失败,515,218,5,5,http://localhost:8080/api/orders/5/ship,4,0,0
+1766834313548,15,3-买家登录,401,,50并发-确认收货+评价流程 1-5,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,14,0,0
+1766834313563,6,4-买家确认收货,401,,50并发-确认收货+评价流程 1-5,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/5/receive,6,0,0
+1766834313570,21,5-买家评价,401,,50并发-确认收货+评价流程 1-5,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,21,0,0
+1766834313076,62,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-7,,false,,2579,1182,12,12,null,0,480,1
+1766834313077,15,1-卖家登录,401,,50并发-确认收货+评价流程 1-7,text,false,,517,231,7,7,http://localhost:8080/api/auth/login,14,0,1
+1766834313093,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-7,text,false,发货操作失败,515,218,7,7,http://localhost:8080/api/orders/7/ship,5,0,0
+1766834313548,10,3-买家登录,401,,50并发-确认收货+评价流程 1-7,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,10,0,0
+1766834313558,11,4-买家确认收货,401,,50并发-确认收货+评价流程 1-7,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/7/receive,10,0,0
+1766834313570,21,5-买家评价,401,,50并发-确认收货+评价流程 1-7,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,21,0,0
+1766834313469,59,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-11,,false,,2579,1187,12,12,null,0,90,1
+1766834313470,12,1-卖家登录,401,,50并发-确认收货+评价流程 1-11,text,false,,517,232,11,11,http://localhost:8080/api/auth/login,12,0,1
+1766834313482,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-11,text,false,发货操作失败,515,219,11,11,http://localhost:8080/api/orders/11/ship,4,0,0
+1766834313547,15,3-买家登录,401,,50并发-确认收货+评价流程 1-11,text,false,,517,231,11,11,http://localhost:8080/api/auth/login,15,0,0
+1766834313563,7,4-买家确认收货,401,,50并发-确认收货+评价流程 1-11,text,false,确认收货操作失败,515,222,12,12,http://localhost:8080/api/orders/11/receive,7,0,0
+1766834312678,62,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-3,,false,,2579,1182,12,12,null,0,877,2
+1766834313572,20,5-买家评价,401,,50并发-确认收货+评价流程 1-11,text,false,评价操作失败,515,283,12,12,http://localhost:8080/api/reviews,20,0,0
+1766834312583,106,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-2,,false,,2579,1182,12,12,null,0,928,24
+1766834312679,9,1-卖家登录,401,,50并发-确认收货+评价流程 1-3,text,false,,517,231,3,3,http://localhost:8080/api/auth/login,9,0,2
+1766834313370,57,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-10,,false,,2579,1187,12,12,null,0,193,1
+1766834312610,59,1-卖家登录,401,,50并发-确认收货+评价流程 1-2,text,false,,517,231,2,2,http://localhost:8080/api/auth/login,59,0,24
+1766834312697,11,2-卖家发货,401,,50并发-确认收货+评价流程 1-3,text,false,发货操作失败,515,218,3,3,http://localhost:8080/api/orders/3/ship,11,0,0
+1766834312542,109,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-1,,false,,2579,1182,12,12,null,0,968,24
+1766834313548,13,3-买家登录,401,,50并发-确认收货+评价流程 1-3,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,13,0,0
+1766834312697,11,2-卖家发货,401,,50并发-确认收货+评价流程 1-2,text,false,发货操作失败,515,218,3,3,http://localhost:8080/api/orders/2/ship,11,0,0
+1766834312610,59,1-卖家登录,401,,50并发-确认收货+评价流程 1-1,text,false,,517,231,2,2,http://localhost:8080/api/auth/login,59,0,24
+1766834313562,7,4-买家确认收货,401,,50并发-确认收货+评价流程 1-3,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/3/receive,7,0,0
+1766834312697,11,2-卖家发货,401,,50并发-确认收货+评价流程 1-1,text,false,发货操作失败,515,218,3,3,http://localhost:8080/api/orders/1/ship,11,0,0
+1766834313370,9,1-卖家登录,401,,50并发-确认收货+评价流程 1-10,text,false,,517,232,10,10,http://localhost:8080/api/auth/login,9,0,1
+1766834313548,21,3-买家登录,401,,50并发-确认收货+评价流程 1-1,text,false,,517,230,12,12,http://localhost:8080/api/auth/login,21,0,0
+1766834313570,11,4-买家确认收货,401,,50并发-确认收货+评价流程 1-1,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/1/receive,11,0,0
+1766834313587,7,5-买家评价,401,,50并发-确认收货+评价流程 1-1,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,7,0,0
+1766834313380,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-10,text,false,发货操作失败,515,219,10,10,http://localhost:8080/api/orders/10/ship,5,0,0
+1766834313548,10,3-买家登录,401,,50并发-确认收货+评价流程 1-10,text,false,,517,231,11,11,http://localhost:8080/api/auth/login,10,0,0
+1766834313570,22,5-买家评价,401,,50并发-确认收货+评价流程 1-3,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,22,0,0
+1766834313558,11,4-买家确认收货,401,,50并发-确认收货+评价流程 1-10,text,false,确认收货操作失败,515,222,12,12,http://localhost:8080/api/orders/10/receive,11,0,0
+1766834313570,22,5-买家评价,401,,50并发-确认收货+评价流程 1-10,text,false,评价操作失败,515,283,12,12,http://localhost:8080/api/reviews,21,0,0
+1766834313548,10,3-买家登录,401,,50并发-确认收货+评价流程 1-2,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,10,0,0
+1766834313559,10,4-买家确认收货,401,,50并发-确认收货+评价流程 1-2,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/2/receive,9,0,0
+1766834313572,16,5-买家评价,401,,50并发-确认收货+评价流程 1-2,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,16,0,0
+1766834313272,121,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-9,,false,,2579,1182,12,12,null,0,225,2
+1766834313273,75,1-卖家登录,401,,50并发-确认收货+评价流程 1-9,text,false,,517,231,9,9,http://localhost:8080/api/auth/login,75,0,2
+1766834313349,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-9,text,false,发货操作失败,515,218,9,9,http://localhost:8080/api/orders/9/ship,5,0,0
+1766834313548,10,3-买家登录,401,,50并发-确认收货+评价流程 1-9,text,false,,517,230,11,11,http://localhost:8080/api/auth/login,10,0,0
+1766834313559,10,4-买家确认收货,401,,50并发-确认收货+评价流程 1-9,text,false,确认收货操作失败,515,221,12,12,http://localhost:8080/api/orders/9/receive,10,0,0
+1766834313571,21,5-买家评价,401,,50并发-确认收货+评价流程 1-9,text,false,评价操作失败,515,282,12,12,http://localhost:8080/api/reviews,21,0,0
+1766834313569,68,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-12,,false,,2579,1187,1,1,null,0,6,2
+1766834313569,25,1-卖家登录,401,,50并发-确认收货+评价流程 1-12,text,false,,517,232,12,12,http://localhost:8080/api/auth/login,25,0,2
+1766834313595,10,2-卖家发货,401,,50并发-确认收货+评价流程 1-12,text,false,发货操作失败,515,219,12,12,http://localhost:8080/api/orders/12/ship,10,0,0
+1766834313606,16,3-买家登录,401,,50并发-确认收货+评价流程 1-12,text,false,,517,231,12,12,http://localhost:8080/api/auth/login,16,0,0
+1766834313623,7,4-买家确认收货,401,,50并发-确认收货+评价流程 1-12,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/12/receive,7,0,0
+1766834313632,10,5-买家评价,401,,50并发-确认收货+评价流程 1-12,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,10,0,0
+1766834313666,33,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-13,,false,,2579,1187,1,1,null,0,7,1
+1766834313666,11,1-卖家登录,401,,50并发-确认收货+评价流程 1-13,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,11,0,1
+1766834313677,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-13,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/13/ship,5,0,0
+1766834313683,8,3-买家登录,401,,50并发-确认收货+评价流程 1-13,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,8,0,0
+1766834313692,5,4-买家确认收货,401,,50并发-确认收货+评价流程 1-13,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/13/receive,5,0,0
+1766834313700,4,5-买家评价,401,,50并发-确认收货+评价流程 1-13,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,4,0,0
+1766834313769,26,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-14,,false,,2579,1187,1,1,null,0,3,1
+1766834313769,8,1-卖家登录,401,,50并发-确认收货+评价流程 1-14,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,8,0,1
+1766834313777,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-14,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/14/ship,4,0,0
+1766834313782,6,3-买家登录,401,,50并发-确认收货+评价流程 1-14,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,6,0,0
+1766834313788,4,4-买家确认收货,401,,50并发-确认收货+评价流程 1-14,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/14/receive,4,0,0
+1766834313793,4,5-买家评价,401,,50并发-确认收货+评价流程 1-14,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,4,0,0
+1766834313866,32,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-15,,false,,2579,1187,1,1,null,0,4,1
+1766834313866,8,1-卖家登录,401,,50并发-确认收货+评价流程 1-15,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,8,0,1
+1766834313875,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-15,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/15/ship,3,0,0
+1766834313879,11,3-买家登录,401,,50并发-确认收货+评价流程 1-15,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,11,0,0
+1766834313890,6,4-买家确认收货,401,,50并发-确认收货+评价流程 1-15,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/15/receive,6,0,0
+1766834313897,4,5-买家评价,401,,50并发-确认收货+评价流程 1-15,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,4,0,0
+1766834313962,19,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-16,,false,,2579,1187,1,1,null,0,5,1
+1766834313962,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-16,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834313969,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-16,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/16/ship,3,0,0
+1766834313973,4,3-买家登录,401,,50并发-确认收货+评价流程 1-16,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834313978,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-16,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/16/receive,3,0,0
+1766834313982,3,5-买家评价,401,,50并发-确认收货+评价流程 1-16,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834314061,20,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-17,,false,,2579,1187,1,1,null,0,6,1
+1766834314062,8,1-卖家登录,401,,50并发-确认收货+评价流程 1-17,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,8,0,1
+1766834314071,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-17,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/17/ship,2,0,0
+1766834314075,4,3-买家登录,401,,50并发-确认收货+评价流程 1-17,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314079,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-17,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/17/receive,3,0,0
+1766834314083,3,5-买家评价,401,,50并发-确认收货+评价流程 1-17,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834314157,20,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-18,,false,,2579,1187,1,1,null,0,5,1
+1766834314158,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-18,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834314164,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-18,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/18/ship,5,0,0
+1766834314171,4,3-买家登录,401,,50并发-确认收货+评价流程 1-18,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314176,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-18,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/18/receive,3,0,0
+1766834314180,2,5-买家评价,401,,50并发-确认收货+评价流程 1-18,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834314256,24,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-19,,false,,2579,1187,1,1,null,0,3,0
+1766834314257,8,1-卖家登录,401,,50并发-确认收货+评价流程 1-19,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,8,0,0
+1766834314265,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-19,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/19/ship,3,0,0
+1766834314270,4,3-买家登录,401,,50并发-确认收货+评价流程 1-19,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314274,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-19,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/19/receive,3,0,0
+1766834314278,5,5-买家评价,401,,50并发-确认收货+评价流程 1-19,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,5,0,0
+1766834314354,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-20,,false,,2579,1187,1,1,null,0,5,1
+1766834314354,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-20,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834314361,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-20,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/20/ship,2,0,0
+1766834314365,4,3-买家登录,401,,50并发-确认收货+评价流程 1-20,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314369,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-20,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/20/receive,3,0,0
+1766834314373,2,5-买家评价,401,,50并发-确认收货+评价流程 1-20,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834314453,19,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-21,,false,,2579,1187,1,1,null,0,4,1
+1766834314453,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-21,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834314461,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-21,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/21/ship,3,0,0
+1766834314465,4,3-买家登录,401,,50并发-确认收货+评价流程 1-21,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314469,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-21,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/21/receive,2,0,0
+1766834314472,3,5-买家评价,401,,50并发-确认收货+评价流程 1-21,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834314551,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-22,,false,,2579,1187,1,1,null,0,5,1
+1766834314552,4,1-卖家登录,401,,50并发-确认收货+评价流程 1-22,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,4,0,1
+1766834314557,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-22,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/22/ship,2,0,0
+1766834314560,5,3-买家登录,401,,50并发-确认收货+评价流程 1-22,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834314565,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-22,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/22/receive,3,0,0
+1766834314569,2,5-买家评价,401,,50并发-确认收货+评价流程 1-22,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834314651,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-23,,false,,2579,1187,1,1,null,0,4,1
+1766834314651,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-23,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834314658,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-23,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/23/ship,2,0,0
+1766834314661,4,3-买家登录,401,,50并发-确认收货+评价流程 1-23,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314666,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-23,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/23/receive,2,0,0
+1766834314669,2,5-买家评价,401,,50并发-确认收货+评价流程 1-23,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834314749,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-24,,false,,2579,1187,1,1,null,0,5,1
+1766834314749,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-24,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834314756,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-24,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/24/ship,2,0,0
+1766834314759,3,3-买家登录,401,,50并发-确认收货+评价流程 1-24,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834314762,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-24,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/24/receive,2,0,0
+1766834314766,3,5-买家评价,401,,50并发-确认收货+评价流程 1-24,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834314849,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-25,,false,,2579,1187,1,1,null,0,3,2
+1766834314849,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-25,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,2
+1766834314855,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-25,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/25/ship,2,0,0
+1766834314858,3,3-买家登录,401,,50并发-确认收货+评价流程 1-25,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,2,0,0
+1766834314861,4,4-买家确认收货,401,,50并发-确认收货+评价流程 1-25,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/25/receive,4,0,0
+1766834314866,3,5-买家评价,401,,50并发-确认收货+评价流程 1-25,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834314948,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-26,,false,,2579,1187,1,1,null,0,5,0
+1766834314949,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-26,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834314954,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-26,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/26/ship,3,0,0
+1766834314958,4,3-买家登录,401,,50并发-确认收货+评价流程 1-26,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834314963,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-26,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/26/receive,2,0,0
+1766834314966,2,5-买家评价,401,,50并发-确认收货+评价流程 1-26,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315046,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-27,,false,,2579,1187,1,1,null,0,4,1
+1766834315047,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-27,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834315053,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-27,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/27/ship,4,0,0
+1766834315058,4,3-买家登录,401,,50并发-确认收货+评价流程 1-27,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834315062,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-27,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/27/receive,2,0,0
+1766834315065,2,5-买家评价,401,,50并发-确认收货+评价流程 1-27,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315147,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-28,,false,,2579,1187,1,1,null,0,2,1
+1766834315147,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-28,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834315153,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-28,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/28/ship,3,0,0
+1766834315157,3,3-买家登录,401,,50并发-确认收货+评价流程 1-28,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834315160,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-28,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/28/receive,2,0,0
+1766834315163,3,5-买家评价,401,,50并发-确认收货+评价流程 1-28,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834315246,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-29,,false,,2579,1187,1,1,null,0,3,1
+1766834315246,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-29,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834315252,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-29,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/29/ship,2,0,0
+1766834315255,4,3-买家登录,401,,50并发-确认收货+评价流程 1-29,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834315260,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-29,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/29/receive,2,0,0
+1766834315263,2,5-买家评价,401,,50并发-确认收货+评价流程 1-29,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315348,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-30,,false,,2579,1187,1,1,null,0,4,1
+1766834315348,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-30,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834315356,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-30,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/30/ship,2,0,0
+1766834315359,3,3-买家登录,401,,50并发-确认收货+评价流程 1-30,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834315362,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-30,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/30/receive,3,0,0
+1766834315366,2,5-买家评价,401,,50并发-确认收货+评价流程 1-30,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315447,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-31,,false,,2579,1187,1,1,null,0,1,1
+1766834315447,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-31,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834315453,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-31,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/31/ship,3,0,0
+1766834315457,3,3-买家登录,401,,50并发-确认收货+评价流程 1-31,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834315460,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-31,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/31/receive,3,0,0
+1766834315463,3,5-买家评价,401,,50并发-确认收货+评价流程 1-31,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315545,94,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-32,,false,,2579,1187,1,1,null,0,5,0
+1766834315546,45,1-卖家登录,401,,50并发-确认收货+评价流程 1-32,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,45,0,0
+1766834315591,35,2-卖家发货,401,,50并发-确认收货+评价流程 1-32,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/32/ship,35,0,0
+1766834315627,8,3-买家登录,401,,50并发-确认收货+评价流程 1-32,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,8,0,0
+1766834315636,4,4-买家确认收货,401,,50并发-确认收货+评价流程 1-32,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/32/receive,4,0,0
+1766834315641,2,5-买家评价,401,,50并发-确认收货+评价流程 1-32,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315646,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-33,,false,,2579,1187,1,1,null,0,1,0
+1766834315647,4,1-卖家登录,401,,50并发-确认收货+评价流程 1-33,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834315651,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-33,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/33/ship,3,0,0
+1766834315654,5,3-买家登录,401,,50并发-确认收货+评价流程 1-33,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834315659,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-33,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/33/receive,3,0,0
+1766834315662,3,5-买家评价,401,,50并发-确认收货+评价流程 1-33,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834315749,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-34,,false,,2579,1187,1,1,null,0,3,1
+1766834315749,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-34,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,1
+1766834315755,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-34,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/34/ship,3,0,0
+1766834315759,3,3-买家登录,401,,50并发-确认收货+评价流程 1-34,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834315763,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-34,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/34/receive,2,0,0
+1766834315765,2,5-买家评价,401,,50并发-确认收货+评价流程 1-34,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315847,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-35,,false,,2579,1187,1,1,null,0,3,0
+1766834315848,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-35,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834315853,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-35,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/35/ship,4,0,0
+1766834315858,4,3-买家登录,401,,50并发-确认收货+评价流程 1-35,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834315862,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-35,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/35/receive,3,0,0
+1766834315865,2,5-买家评价,401,,50并发-确认收货+评价流程 1-35,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834315946,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-36,,false,,2579,1187,1,1,null,0,4,1
+1766834315947,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-36,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834315955,1,2-卖家发货,401,,50并发-确认收货+评价流程 1-36,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/36/ship,1,0,0
+1766834315957,4,3-买家登录,401,,50并发-确认收货+评价流程 1-36,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834315961,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-36,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/36/receive,2,0,0
+1766834315963,2,5-买家评价,401,,50并发-确认收货+评价流程 1-36,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316046,15,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-37,,false,,2579,1187,1,1,null,0,4,1
+1766834316046,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-37,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834316052,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-37,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/37/ship,2,0,0
+1766834316055,4,3-买家登录,401,,50并发-确认收货+评价流程 1-37,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316059,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-37,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/37/receive,2,0,0
+1766834316062,2,5-买家评价,401,,50并发-确认收货+评价流程 1-37,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316147,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-38,,false,,2579,1187,1,1,null,0,3,1
+1766834316147,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-38,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834316152,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-38,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/38/ship,2,0,0
+1766834316155,6,3-买家登录,401,,50并发-确认收货+评价流程 1-38,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,6,0,0
+1766834316161,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-38,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/38/receive,2,0,0
+1766834316164,2,5-买家评价,401,,50并发-确认收货+评价流程 1-38,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316260,67,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-39,,false,,2579,1187,1,1,null,0,4,2
+1766834316260,45,1-卖家登录,401,,50并发-确认收货+评价流程 1-39,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,45,0,2
+1766834316305,11,2-卖家发货,401,,50并发-确认收货+评价流程 1-39,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/39/ship,11,0,0
+1766834316317,5,3-买家登录,401,,50并发-确认收货+评价流程 1-39,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834316323,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-39,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/39/receive,3,0,0
+1766834316327,3,5-买家评价,401,,50并发-确认收货+评价流程 1-39,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834316346,15,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-40,,false,,2579,1187,1,1,null,0,5,0
+1766834316347,4,1-卖家登录,401,,50并发-确认收货+评价流程 1-40,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316352,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-40,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/40/ship,3,0,0
+1766834316356,4,3-买家登录,401,,50并发-确认收货+评价流程 1-40,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316360,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-40,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/40/receive,2,0,0
+1766834316363,2,5-买家评价,401,,50并发-确认收货+评价流程 1-40,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316449,15,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-41,,false,,2579,1187,1,1,null,0,4,0
+1766834316450,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-41,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834316456,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-41,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/41/ship,2,0,0
+1766834316459,4,3-买家登录,401,,50并发-确认收货+评价流程 1-41,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316463,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-41,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/41/receive,2,0,0
+1766834316465,2,5-买家评价,401,,50并发-确认收货+评价流程 1-41,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316547,16,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-42,,false,,2579,1187,1,1,null,0,3,1
+1766834316547,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-42,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834316554,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-42,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/42/ship,2,0,0
+1766834316557,3,3-买家登录,401,,50并发-确认收货+评价流程 1-42,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834316561,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-42,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/42/receive,2,0,0
+1766834316563,2,5-买家评价,401,,50并发-确认收货+评价流程 1-42,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316647,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-43,,false,,2579,1187,1,1,null,0,3,1
+1766834316648,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-43,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834316656,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-43,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/43/ship,2,0,0
+1766834316658,5,3-买家登录,401,,50并发-确认收货+评价流程 1-43,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316663,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-43,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/43/receive,2,0,0
+1766834316666,2,5-买家评价,401,,50并发-确认收货+评价流程 1-43,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,1,0,0
+1766834316747,15,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-44,,false,,2579,1187,1,1,null,0,5,1
+1766834316747,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-44,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834316755,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-44,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/44/ship,2,0,0
+1766834316758,3,3-买家登录,401,,50并发-确认收货+评价流程 1-44,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834316762,1,4-买家确认收货,401,,50并发-确认收货+评价流程 1-44,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/44/receive,1,0,0
+1766834316764,2,5-买家评价,401,,50并发-确认收货+评价流程 1-44,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316848,18,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-45,,false,,2579,1187,1,1,null,0,3,1
+1766834316849,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-45,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834316857,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-45,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/45/ship,2,0,0
+1766834316859,4,3-买家登录,401,,50并发-确认收货+评价流程 1-45,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316863,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-45,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/45/receive,3,0,0
+1766834316866,2,5-买家评价,401,,50并发-确认收货+评价流程 1-45,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834316948,20,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-46,,false,,2579,1187,1,1,null,0,0,1
+1766834316948,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-46,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834316953,5,2-卖家发货,401,,50并发-确认收货+评价流程 1-46,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/46/ship,5,0,0
+1766834316958,4,3-买家登录,401,,50并发-确认收货+评价流程 1-46,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834316962,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-46,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/46/receive,3,0,0
+1766834316965,3,5-买家评价,401,,50并发-确认收货+评价流程 1-46,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,3,0,0
+1766834317046,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-47,,false,,2579,1187,1,1,null,0,3,1
+1766834317046,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-47,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834317052,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-47,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/47/ship,2,0,0
+1766834317056,4,3-买家登录,401,,50并发-确认收货+评价流程 1-47,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,4,0,0
+1766834317060,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-47,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/47/receive,3,0,0
+1766834317064,2,5-买家评价,401,,50并发-确认收货+评价流程 1-47,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834317148,22,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-48,,false,,2579,1187,1,1,null,0,4,1
+1766834317148,7,1-卖家登录,401,,50并发-确认收货+评价流程 1-48,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,7,0,1
+1766834317155,3,2-卖家发货,401,,50并发-确认收货+评价流程 1-48,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/48/ship,3,0,0
+1766834317159,5,3-买家登录,401,,50并发-确认收货+评价流程 1-48,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,5,0,0
+1766834317165,3,4-买家确认收货,401,,50并发-确认收货+评价流程 1-48,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/48/receive,3,0,0
+1766834317169,4,5-买家评价,401,,50并发-确认收货+评价流程 1-48,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,4,0,0
+1766834317251,14,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-49,,false,,2579,1187,1,1,null,0,3,1
+1766834317251,5,1-卖家登录,401,,50并发-确认收货+评价流程 1-49,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,5,0,1
+1766834317256,2,2-卖家发货,401,,50并发-确认收货+评价流程 1-49,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/49/ship,2,0,0
+1766834317259,3,3-买家登录,401,,50并发-确认收货+评价流程 1-49,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834317263,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-49,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/49/receive,2,0,0
+1766834317265,2,5-买家评价,401,,50并发-确认收货+评价流程 1-49,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0
+1766834317347,17,确认收货+评价完整流程,401,"Number of samples in transaction : 5, number of failing samples : 5",50并发-确认收货+评价流程 1-50,,false,,2579,1187,1,1,null,0,3,0
+1766834317348,6,1-卖家登录,401,,50并发-确认收货+评价流程 1-50,text,false,,517,232,1,1,http://localhost:8080/api/auth/login,6,0,0
+1766834317354,4,2-卖家发货,401,,50并发-确认收货+评价流程 1-50,text,false,发货操作失败,515,219,1,1,http://localhost:8080/api/orders/50/ship,4,0,0
+1766834317359,3,3-买家登录,401,,50并发-确认收货+评价流程 1-50,text,false,,517,231,1,1,http://localhost:8080/api/auth/login,3,0,0
+1766834317362,2,4-买家确认收货,401,,50并发-确认收货+评价流程 1-50,text,false,确认收货操作失败,515,222,1,1,http://localhost:8080/api/orders/50/receive,2,0,0
+1766834317365,2,5-买家评价,401,,50并发-确认收货+评价流程 1-50,text,false,评价操作失败,515,283,1,1,http://localhost:8080/api/reviews,2,0,0

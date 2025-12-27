@@ -30,7 +30,7 @@
 
 **运行命令**:
 ```bash
-jmeter -n -t product-search-load-test.jmx -l product-search-results.jtl -e -o product-search-report
+jmeter -n -t product-search-load-test.jmx -l product-search-results.jtl -e -o product-search-report -f
 ```
 
 ### 场景B：下单压测
@@ -54,7 +54,7 @@ jmeter -n -t product-search-load-test.jmx -l product-search-results.jtl -e -o pr
 
 **运行命令**:
 ```bash
-jmeter -n -t order-create-load-test.jmx -l order-create-results.jtl -e -o order-create-report
+jmeter -n -t order-create-load-test.jmx -l order-create-results.jtl -e -o order-create-report -f
 ```
 
 ### 场景C：确认收货+评价压测
@@ -63,14 +63,22 @@ jmeter -n -t order-create-load-test.jmx -l order-create-results.jtl -e -o order-
 
 **测试目标**: 验证订单状态机在并发操作下的正确性
 
+**⚠️ 注意**: 当前脚本需要根据实际API调整
+
 **测试配置**:
 - 50并发线程组
-- 完整流程：卖家发货 → 买家确认收货 → 买家评价
+- 完整流程：管理员发货 → 管理员确认收货 → 买家评价
 
 **数据准备**:
 1. 修改 `orders.csv` 文件，填入真实的订单数据
 2. 订单状态必须为 CREATED（待发货）
-3. 确保买家和卖家账号正确
+3. 需要管理员账号进行状态转换
+4. 需要买家账号进行评价
+
+**API接口调整**:
+- 发货: `PUT /api/admin/orders/{id}/status` (status=SHIPPED)
+- 确认收货: `PUT /api/admin/orders/{id}/status` (status=RECEIVED)  
+- 评价: `POST /api/reviews`
 
 **验证指标**:
 - 所有发货操作成功
@@ -80,7 +88,7 @@ jmeter -n -t order-create-load-test.jmx -l order-create-results.jtl -e -o order-
 
 **运行命令**:
 ```bash
-jmeter -n -t order-flow-load-test.jmx -l order-flow-results.jtl -e -o order-flow-report
+jmeter -n -t order-flow-load-test.jmx -l order-flow-results.jtl -e -o order-flow-report -f
 ```
 
 ## 数据文件说明

@@ -33,9 +33,19 @@
 docker-compose up -d --build backend nginx
 ```
 2. **访问应用**
-- 前端页面: http://localhost
+- 前端页面: http://localhost:8082
+- API文档：http://localhost:8081/api/swagger-ui.html
 - 默认管理员账号: xiaoweihua / cqu
+3. 数据库
+```bash
+docker exec -it cqu-marketplace-mysql mysql -u root -proot cqu_marketplace
+```
+4. demo
+```bash
+docker cp demo/demo-data.sql cqu-marketplace-mysql:/tmp/demo-data.sql
 
+docker exec cqu-marketplace-mysql mysql -u root -proot --default-character-set=utf8mb4 cqu_marketplace -e "source /tmp/demo-data.sql"
+```
 ## 项目结构
 
 ```

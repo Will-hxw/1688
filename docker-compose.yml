@@ -6,7 +6,7 @@ services:
       dockerfile: nginx/Dockerfile
     container_name: cqu-marketplace-nginx
     ports:
-      - "${NGINX_PORT:-80}:80"
+      - "8082:80"  # 使用8082端口避免冲突
     volumes:
       - ./uploads:/var/www/uploads:ro
     depends_on:
@@ -21,6 +21,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: cqu-marketplace-backend
+    ports:
+      - "8081:8080"  # 映射到8081端口避免冲突
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-cqu_marketplace}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=${MYSQL_USER:-root}

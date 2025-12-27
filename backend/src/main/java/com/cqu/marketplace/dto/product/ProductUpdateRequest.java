@@ -18,7 +18,7 @@ public class ProductUpdateRequest {
     private String description;
     
     @DecimalMin(value = "0.01", message = "价格必须大于0")
-    @DecimalMax(value = "999999.99", message = "价格不能超过999999.99")
+    @DecimalMax(value = "9999999999999999.99", message = "价格不能超过9999999999999999.99")
     private BigDecimal price;
     
     private String imageUrl;
