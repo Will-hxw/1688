@@ -97,6 +97,7 @@ const ProductDetail = () => {
             
             <Descriptions column={1} style={{ marginBottom: 24 }}>
               <Descriptions.Item label="分类">{product.category}</Descriptions.Item>
+              <Descriptions.Item label="库存">{product.stock > 0 ? `${product.stock} 件` : '已售罄'}</Descriptions.Item>
               <Descriptions.Item label="描述">{product.description}</Descriptions.Item>
               <Descriptions.Item label="发布时间">
                 {new Date(product.createdAt).toLocaleString()}
@@ -116,7 +117,7 @@ const ProductDetail = () => {
               <span>{product.sellerNickname}</span>
             </div>
             
-            {product.status === 'ON_SALE' ? (
+            {product.status === 'ON_SALE' && product.stock > 0 ? (
               <Button 
                 type="primary" 
                 size="large" 
@@ -128,7 +129,7 @@ const ProductDetail = () => {
               </Button>
             ) : (
               <Button size="large" disabled>
-                商品已售出
+                {product.stock === 0 ? '库存不足' : '商品已下架'}
               </Button>
             )}
           </Col>

@@ -80,14 +80,10 @@ public class OrderServiceImpl implements OrderService {
             throw BusinessException.conflict("不能购买自己的商品");
         }
         
-        // 5. 原子扣减库存（ON_SALE → SOLD）
-        boolean updated = productService.updateStatusAtomic(
-            product.getId(), 
-            ProductStatus.ON_SALE.getCode(), 
-            ProductStatus.SOLD.getCode()
-        );
+        // 5. 原子扣减库存（库存-1，库存为0时自动变为SOLD）
+        boolean updated = productService.decrementStock(product.getId());
         if (!updated) {
-            throw BusinessException.conflict("商品已售出或不可购买");
+            throw BusinessException.conflict("商品库存不足或不可购买");
         }
 
         // 6. 创建订单
@@ -188,9 +184,8 @@ public class OrderServiceImpl implements OrderService {
             throw BusinessException.conflict("订单状态已变更，请刷新重试");
         }
         
-        // 恢复商品状态（SOLD → ON_SALE）
-        productService.updateStatusAtomic(order.getProductId(), 
-            ProductStatus.SOLD.getCode(), ProductStatus.ON_SALE.getCode());
+        // 恢复商品库存（库存+1，状态恢复为ON_SALE）
+        productService.incrementStock(order.getProductId());
         
         log.info("订单取消成功: orderId={}, canceledBy={}", orderId, canceledBy);
     }

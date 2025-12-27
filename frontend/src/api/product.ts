@@ -9,6 +9,7 @@ export interface Product {
   price: number
   imageUrl: string
   category: string
+  stock: number
   status: string
   createdAt: string
 }
@@ -37,6 +38,7 @@ export interface CreateProductParams {
   price: number
   imageUrl: string
   category: string
+  stock: number
 }
 
 export interface UpdateProductParams {
@@ -45,6 +47,7 @@ export interface UpdateProductParams {
   price?: number
   imageUrl?: string
   category?: string
+  stock?: number
 }
 
 // 搜索商品

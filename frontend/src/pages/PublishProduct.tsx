@@ -122,6 +122,23 @@ const PublishProduct = () => {
         </Form.Item>
 
         <Form.Item
+          name="stock"
+          label="库存数量"
+          rules={[
+            { required: true, message: '请输入库存数量' },
+            { type: 'number', min: 1, max: 9999, message: '库存必须在1-9999之间' }
+          ]}
+          initialValue={1}
+        >
+          <InputNumber
+            style={{ width: '100%' }}
+            min={1}
+            max={9999}
+            placeholder="请输入库存数量"
+          />
+        </Form.Item>
+
+        <Form.Item
           name="category"
           label="分类"
           rules={[{ required: true, message: '请选择分类' }]}

@@ -28,4 +28,9 @@ public class ProductCreateRequest {
     
     @Size(max = 50, message = "分类不能超过50字符")
     private String category;
+    
+    @NotNull(message = "库存不能为空")
+    @Min(value = 1, message = "库存必须大于0")
+    @Max(value = 9999, message = "库存不能超过9999")
+    private Integer stock;
 }

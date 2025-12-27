@@ -21,8 +21,6 @@
 - Docker & Docker Compose
 - Nginx反向代理
 
-## 开始
-
 ### 环境要求
 
 - Docker 20.10+
@@ -36,14 +34,7 @@ docker-compose up -d --build backend nginx
 ```
 2. **访问应用**
 - 前端页面: http://localhost
-- API文档: http://localhost/swagger-ui/index.html
 - 默认管理员账号: xiaoweihua / cqu
-
-### 停止服务
-
-```bash
-docker-compose down
-```
 
 ## 项目结构
 

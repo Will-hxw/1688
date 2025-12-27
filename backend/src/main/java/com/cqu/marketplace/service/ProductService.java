@@ -53,4 +53,16 @@ public interface ProductService {
      * 原子更新商品状态
      */
     boolean updateStatusAtomic(Long productId, String fromStatus, String toStatus);
+    
+    /**
+     * 原子扣减库存（下单时调用）
+     * @return true表示扣减成功，false表示库存不足
+     */
+    boolean decrementStock(Long productId);
+    
+    /**
+     * 原子增加库存（取消订单时调用）
+     * @return true表示增加成功
+     */
+    boolean incrementStock(Long productId);
 }

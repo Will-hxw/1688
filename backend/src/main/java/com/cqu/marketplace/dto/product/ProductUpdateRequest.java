@@ -25,4 +25,8 @@ public class ProductUpdateRequest {
     
     @Size(max = 50, message = "分类不能超过50字符")
     private String category;
+    
+    @Min(value = 0, message = "库存不能为负数")
+    @Max(value = 9999, message = "库存不能超过9999")
+    private Integer stock;
 }

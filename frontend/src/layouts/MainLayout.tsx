@@ -123,7 +123,7 @@ const MainLayout = () => {
       </Content>
       
       <Footer style={{ textAlign: 'center', background: '#fff' }}>
-        CQU抽象集市 ©2024 重庆大学
+        CQU抽象集市 ©2026 重庆大学计算机学院华晓蔚
       </Footer>
     </Layout>
   )

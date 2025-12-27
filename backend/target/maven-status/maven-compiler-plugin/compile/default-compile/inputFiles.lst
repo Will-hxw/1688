@@ -14,6 +14,7 @@ D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\entity\User.
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\security\CurrentUser.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\service\impl\UserServiceImpl.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\mapper\UserMapper.java
+D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\config\MyBatisMetaObjectHandler.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\entity\Review.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\service\UploadService.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\common\enums\OrderStatus.java
@@ -39,6 +40,7 @@ D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\service\impl
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\common\PageResult.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\mapper\OrderMapper.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\service\AdminOrderService.java
+D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\dto\user\UpdateProfileRequest.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\dto\product\ProductUpdateRequest.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\vo\upload\UploadVO.java
 D:\Study-hxw\Project\1688\backend\src\main\java\com\cqu\marketplace\vo\auth\LoginVO.java

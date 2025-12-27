@@ -35,6 +35,9 @@ public class Product {
     /** 分类 */
     private String category;
     
+    /** 库存数量 */
+    private Integer stock;
+    
     /** 状态 */
     private ProductStatus status;
     

@@ -44,6 +44,7 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(request.getPrice());
         product.setImageUrl(request.getImageUrl());
         product.setCategory(request.getCategory());
+        product.setStock(request.getStock());
         product.setStatus(ProductStatus.ON_SALE);
         
         productMapper.insert(product);
@@ -83,6 +84,9 @@ public class ProductServiceImpl implements ProductService {
         if (request.getCategory() != null) {
             product.setCategory(request.getCategory());
         }
+        if (request.getStock() != null) {
+            product.setStock(request.getStock());
+        }
         
         productMapper.updateById(product);
         log.info("商品更新成功: productId={}", productId);
@@ -113,8 +117,9 @@ public class ProductServiceImpl implements ProductService {
         Page<Product> page = new Page<>(request.getPage(), request.getPageSize());
         
         LambdaQueryWrapper<Product> wrapper = new LambdaQueryWrapper<>();
-        // 只查询ON_SALE状态
-        wrapper.eq(Product::getStatus, ProductStatus.ON_SALE);
+        // 只查询ON_SALE状态且有库存的商品
+        wrapper.eq(Product::getStatus, ProductStatus.ON_SALE)
+               .gt(Product::getStock, 0);
         
         // 关键词搜索
         if (StringUtils.hasText(request.getKeyword())) {
@@ -194,6 +199,18 @@ public class ProductServiceImpl implements ProductService {
         return rows > 0;
     }
     
+    @Override
+    public boolean decrementStock(Long productId) {
+        int rows = productMapper.decrementStock(productId);
+        return rows > 0;
+    }
+    
+    @Override
+    public boolean incrementStock(Long productId) {
+        int rows = productMapper.incrementStock(productId);
+        return rows > 0;
+    }
+    
     /**
      * 转换为VO
      */
@@ -206,6 +223,7 @@ public class ProductServiceImpl implements ProductService {
         vo.setPrice(product.getPrice());
         vo.setImageUrl(product.getImageUrl());
         vo.setCategory(product.getCategory());
+        vo.setStock(product.getStock());
         vo.setStatus(product.getStatus().getCode());
         vo.setCreatedAt(product.getCreatedAt());
         
