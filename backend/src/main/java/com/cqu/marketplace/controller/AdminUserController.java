@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理员用户控制器
  */
 @RestController
-@RequestMapping("/api/admin/users")
+@RequestMapping("/admin/users")
 @RequiredArgsConstructor
 public class AdminUserController {
     

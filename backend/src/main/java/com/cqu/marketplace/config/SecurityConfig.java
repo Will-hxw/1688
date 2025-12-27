@@ -52,8 +52,9 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // 公开接口：认证、商品搜索/详情、Swagger
                 .requestMatchers("/auth/**").permitAll()
-                .requestMatchers("/products", "/products/{id}").permitAll()
-                .requestMatchers("/products/{id}/reviews").permitAll()
+                .requestMatchers("/products").permitAll()
+                .requestMatchers("/products/*").permitAll()
+                .requestMatchers("/products/*/reviews").permitAll()
                 .requestMatchers("/swagger-ui/**", "/api-docs/**", "/swagger-ui.html").permitAll()
                 .requestMatchers("/uploads/**").permitAll()
                 // 管理员接口

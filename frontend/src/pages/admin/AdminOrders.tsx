@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Table, Button, Tag, Modal, Select, message } from 'antd'
+import { Table, Button, Tag, Modal, Select } from 'antd'
 import { getAdminOrders, updateOrderStatus } from '../../api/admin'
+import { showMessage } from '../../utils/messageHolder'
 import type { Order } from '../../api/order'
 
 const { Option } = Select
@@ -58,7 +59,7 @@ const AdminOrders = () => {
     if (!editingOrder || !newStatus) return
     try {
       await updateOrderStatus(editingOrder.id, newStatus)
-      message.success('状态更新成功')
+      showMessage.success('状态更新成功')
       setStatusModalVisible(false)
       fetchOrders()
     } catch {

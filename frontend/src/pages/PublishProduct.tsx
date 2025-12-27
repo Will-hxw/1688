@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, Form, Input, InputNumber, Select, Button, Upload, message } from 'antd'
+import { Card, Form, Input, InputNumber, Select, Button, Upload } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { createProduct } from '../api/product'
 import type { CreateProductParams } from '../api/product'
 import { uploadImage } from '../api/upload'
 import type { UploadFile, UploadProps } from 'antd'
+import { showMessage } from '../utils/messageHolder'
 
 const { TextArea } = Input
 const { Option } = Select
@@ -25,7 +26,7 @@ const PublishProduct = () => {
       const result = await uploadImage(file as File)
       setImageUrl(result.imageUrl)
       onSuccess?.(result)
-      message.success('图片上传成功')
+      showMessage.success('图片上传成功')
     } catch (error) {
       onError?.(error as Error)
     }
@@ -37,14 +38,14 @@ const PublishProduct = () => {
 
   const onFinish = async (values: Omit<CreateProductParams, 'imageUrl'>) => {
     if (!imageUrl) {
-      message.warning('请上传商品图片')
+      showMessage.warning('请上传商品图片')
       return
     }
     
     setLoading(true)
     try {
       await createProduct({ ...values, imageUrl })
-      message.success('发布成功')
+      showMessage.success('发布成功')
       navigate('/my-products')
     } catch {
       // 错误已在拦截器中处理

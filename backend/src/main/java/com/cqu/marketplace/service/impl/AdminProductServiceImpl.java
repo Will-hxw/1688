@@ -101,7 +101,7 @@ public class AdminProductServiceImpl implements AdminProductService {
         vo.setPrice(product.getPrice());
         vo.setImageUrl(product.getImageUrl());
         vo.setCategory(product.getCategory());
-        vo.setStatus(product.getStatus().name());
+        vo.setStatus(product.getStatus().getCode());
         vo.setCreatedAt(product.getCreatedAt());
         
         // 获取卖家昵称

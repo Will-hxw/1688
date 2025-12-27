@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Table, Button, Tag, Rate, message, Popconfirm } from 'antd'
+import { Table, Button, Tag, Rate, Popconfirm } from 'antd'
 import { getAdminReviews, deleteAdminReview } from '../../api/admin'
+import { showMessage } from '../../utils/messageHolder'
 import type { Review } from '../../api/review'
 
 const AdminReviews = () => {
@@ -29,7 +30,7 @@ const AdminReviews = () => {
   const handleDelete = async (reviewId: number) => {
     try {
       await deleteAdminReview(reviewId)
-      message.success('删除成功')
+      showMessage.success('删除成功')
       fetchReviews()
     } catch {
       // 错误已在拦截器中处理

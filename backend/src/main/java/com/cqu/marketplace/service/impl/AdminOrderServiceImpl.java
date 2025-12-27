@@ -86,7 +86,7 @@ public class AdminOrderServiceImpl implements AdminOrderService {
         vo.setSellerId(order.getSellerId());
         vo.setProductId(order.getProductId());
         vo.setPrice(order.getPrice());
-        vo.setStatus(order.getStatus().name());
+        vo.setStatus(order.getStatus().getCode());
         vo.setCreatedAt(order.getCreatedAt());
         
         if (order.getCanceledBy() != null) {

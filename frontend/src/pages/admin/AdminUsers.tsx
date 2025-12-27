@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Table, Button, Tag, message, Popconfirm } from 'antd'
+import { Table, Button, Tag, Popconfirm } from 'antd'
 import { getUsers, disableUser, enableUser } from '../../api/admin'
+import { showMessage } from '../../utils/messageHolder'
 import type { User } from '../../api/admin'
 
 const statusMap: Record<string, { text: string; color: string }> = {
@@ -39,7 +40,7 @@ const AdminUsers = () => {
   const handleDisable = async (userId: number) => {
     try {
       await disableUser(userId)
-      message.success('禁用成功')
+      showMessage.success('禁用成功')
       fetchUsers()
     } catch {
       // 错误已在拦截器中处理
@@ -49,7 +50,7 @@ const AdminUsers = () => {
   const handleEnable = async (userId: number) => {
     try {
       await enableUser(userId)
-      message.success('启用成功')
+      showMessage.success('启用成功')
       fetchUsers()
     } catch {
       // 错误已在拦截器中处理

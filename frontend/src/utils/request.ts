@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosError, InternalAxiosRequestConfig } from 'axios'
-import { message } from 'antd'
+import { showMessage } from './messageHolder'
 import { useAuthStore } from '../stores/authStore'
 
 // 创建axios实例
@@ -30,33 +30,50 @@ request.interceptors.response.use(
     if (code === 200) {
       return data
     }
-    message.error(msg || '请求失败')
+    showMessage.error(msg || '请求失败')
     return Promise.reject(new Error(msg))
   },
-  (error: AxiosError<{ code: number; message: string }>) => {
+  (error: AxiosError<{ code: number; message: string; data: unknown; timestamp: number }>) => {
     const { response } = error
     if (response) {
       const { status, data } = response
+      // 获取当前路径，判断是否在登录/注册页面
+      const isAuthPage = window.location.pathname === '/login' || window.location.pathname === '/register'
+      // 从Result结构中获取message
+      const errorMessage = data?.message || '请求失败'
+      
       switch (status) {
+        case 400:
+          showMessage.error(errorMessage)
+          break
         case 401:
-          message.error('未登录或令牌已过期')
-          useAuthStore.getState().logout()
-          window.location.href = '/login'
+          // 登录页面显示具体错误信息，其他页面跳转登录
+          if (isAuthPage) {
+            showMessage.error(errorMessage)
+          } else {
+            showMessage.error('未登录或令牌已过期')
+            useAuthStore.getState().logout()
+            window.location.href = '/login'
+          }
           break
         case 403:
-          message.error('权限不足')
+          showMessage.error(errorMessage)
           break
         case 404:
-          message.error(data?.message || '资源不存在')
+          showMessage.error(errorMessage)
           break
         case 409:
-          message.error(data?.message || '操作冲突')
+          // 注册时用户已存在
+          showMessage.error(errorMessage)
+          break
+        case 500:
+          showMessage.error(errorMessage)
           break
         default:
-          message.error(data?.message || '服务器错误')
+          showMessage.error(errorMessage)
       }
     } else {
-      message.error('网络错误，请检查网络连接')
+      showMessage.error('网络错误，请检查网络连接')
     }
     return Promise.reject(error)
   }

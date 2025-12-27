@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
  * 评价控制器
  */
 @RestController
-@RequestMapping("/api")
 @RequiredArgsConstructor
 public class ReviewController {
     

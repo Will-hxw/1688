@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
  * 文件上传控制器
  */
 @RestController
-@RequestMapping("/api/upload")
+@RequestMapping("/upload")
 @RequiredArgsConstructor
 public class UploadController {
     

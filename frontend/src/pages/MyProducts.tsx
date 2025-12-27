@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Card, Table, Button, Space, Tag, Modal, Form, Input, InputNumber, Select, message, Popconfirm } from 'antd'
+import { Card, Table, Button, Space, Tag, Modal, Form, Input, InputNumber, Select, Popconfirm } from 'antd'
 import { getMyProducts, updateProduct, deleteProduct } from '../api/product'
 import type { Product, UpdateProductParams } from '../api/product'
+import { showMessage } from '../utils/messageHolder'
 
 const { TextArea } = Input
 const { Option } = Select
@@ -54,7 +55,7 @@ const MyProducts = () => {
     if (!editingProduct) return
     try {
       await updateProduct(editingProduct.id, values)
-      message.success('更新成功')
+      showMessage.success('更新成功')
       setEditModalVisible(false)
       fetchProducts()
     } catch {
@@ -65,7 +66,7 @@ const MyProducts = () => {
   const handleDelete = async (id: number) => {
     try {
       await deleteProduct(id)
-      message.success('删除成功')
+      showMessage.success('删除成功')
       fetchProducts()
     } catch {
       // 错误已在拦截器中处理

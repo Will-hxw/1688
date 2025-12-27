@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理员订单控制器
  */
 @RestController
-@RequestMapping("/api/admin/orders")
+@RequestMapping("/admin/orders")
 @RequiredArgsConstructor
 public class AdminOrderController {
     

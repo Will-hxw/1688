@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Card, Table, Button, Space, Tag, message, Popconfirm } from 'antd'
+import { Card, Table, Button, Space, Tag, Popconfirm } from 'antd'
 import { getSellerOrders, shipOrder, cancelOrder } from '../api/order'
 import type { Order } from '../api/order'
+import { showMessage } from '../utils/messageHolder'
 
 const statusMap: Record<string, { text: string; color: string }> = {
   CREATED: { text: '待发货', color: 'blue' },
@@ -37,7 +38,7 @@ const SellerOrders = () => {
   const handleShip = async (orderId: number) => {
     try {
       await shipOrder(orderId)
-      message.success('发货成功')
+      showMessage.success('发货成功')
       fetchOrders()
     } catch {
       // 错误已在拦截器中处理
@@ -47,7 +48,7 @@ const SellerOrders = () => {
   const handleCancel = async (orderId: number) => {
     try {
       await cancelOrder(orderId)
-      message.success('取消订单成功')
+      showMessage.success('取消订单成功')
       fetchOrders()
     } catch {
       // 错误已在拦截器中处理

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Card, Row, Col, Button, Descriptions, Avatar, Rate, List, Spin, message, Empty } from 'antd'
+import { Card, Row, Col, Button, Descriptions, Avatar, Rate, List, Spin, Empty } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import { getProductDetail } from '../api/product'
 import type { Product } from '../api/product'
@@ -9,6 +9,7 @@ import { getProductReviews } from '../api/review'
 import type { Review } from '../api/review'
 import { useAuthStore } from '../stores/authStore'
 import { v4 as uuidv4 } from 'uuid'
+import { showMessage } from '../utils/messageHolder'
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
@@ -41,13 +42,13 @@ const ProductDetail = () => {
 
   const handleBuy = async () => {
     if (!isLoggedIn()) {
-      message.warning('请先登录')
+      showMessage.warning('请先登录')
       navigate('/login')
       return
     }
     
     if (product?.sellerId === user?.id) {
-      message.warning('不能购买自己的商品')
+      showMessage.warning('不能购买自己的商品')
       return
     }
 
@@ -55,7 +56,7 @@ const ProductDetail = () => {
     try {
       const idempotencyKey = uuidv4()
       await createOrder(Number(id), idempotencyKey)
-      message.success('下单成功')
+      showMessage.success('下单成功')
       navigate('/buyer-orders')
     } catch {
       // 错误已在拦截器中处理

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理员商品控制器
  */
 @RestController
-@RequestMapping("/api/admin/products")
+@RequestMapping("/admin/products")
 @RequiredArgsConstructor
 public class AdminProductController {
     

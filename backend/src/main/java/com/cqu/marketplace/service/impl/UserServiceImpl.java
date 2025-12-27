@@ -2,6 +2,7 @@ package com.cqu.marketplace.service.impl;
 
 import com.cqu.marketplace.common.PageResult;
 import com.cqu.marketplace.common.exception.BusinessException;
+import com.cqu.marketplace.dto.user.UpdateProfileRequest;
 import com.cqu.marketplace.entity.User;
 import com.cqu.marketplace.mapper.UserMapper;
 import com.cqu.marketplace.service.ProductService;
@@ -34,6 +35,27 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
+    public void updateProfile(Long userId, UpdateProfileRequest request) {
+        User user = userMapper.selectById(userId);
+        if (user == null) {
+            throw new BusinessException(404, "用户不存在");
+        }
+        
+        // 更新昵称
+        if (request.getNickname() != null && !request.getNickname().trim().isEmpty()) {
+            user.setNickname(request.getNickname().trim());
+        }
+        
+        // 更新头像
+        if (request.getAvatar() != null && !request.getAvatar().trim().isEmpty()) {
+            user.setAvatar(request.getAvatar().trim());
+        }
+        
+        userMapper.updateById(user);
+        log.info("用户信息已更新: userId={}", userId);
+    }
+    
+    @Override
     public PageResult<ProductVO> getMyProducts(Long userId, Integer page, Integer pageSize) {
         return productService.getMyProducts(userId, page, pageSize);
     }
@@ -47,8 +69,8 @@ public class UserServiceImpl implements UserService {
         vo.setUsername(user.getUsername());
         vo.setNickname(user.getNickname());
         vo.setAvatar(user.getAvatar());
-        vo.setRole(user.getRole());
-        vo.setStatus(user.getStatus());
+        vo.setRole(user.getRole().getCode());
+        vo.setStatus(user.getStatus().getCode());
         vo.setCreatedAt(user.getCreatedAt());
         return vo;
     }

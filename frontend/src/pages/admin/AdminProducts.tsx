@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Table, Button, Tag, Modal, Form, Input, InputNumber, Select, message, Popconfirm, Space } from 'antd'
+import { Table, Button, Tag, Modal, Form, Input, InputNumber, Select, Popconfirm, Space } from 'antd'
 import { getAdminProducts, updateAdminProduct, deleteAdminProduct } from '../../api/admin'
+import { showMessage } from '../../utils/messageHolder'
 import type { Product, UpdateProductParams } from '../../api/product'
 
 const { TextArea } = Input
@@ -54,7 +55,7 @@ const AdminProducts = () => {
     if (!editingProduct) return
     try {
       await updateAdminProduct(editingProduct.id, values)
-      message.success('更新成功')
+      showMessage.success('更新成功')
       setEditModalVisible(false)
       fetchProducts()
     } catch {
@@ -65,7 +66,7 @@ const AdminProducts = () => {
   const handleDelete = async (id: number) => {
     try {
       await deleteAdminProduct(id)
-      message.success('删除成功')
+      showMessage.success('删除成功')
       fetchProducts()
     } catch {
       // 错误已在拦截器中处理

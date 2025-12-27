@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * 订单控制器
  */
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("/orders")
 @RequiredArgsConstructor
 public class OrderController {
     

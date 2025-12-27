@@ -81,8 +81,8 @@ public class AdminUserServiceImpl implements AdminUserService {
         vo.setUsername(user.getUsername());
         vo.setNickname(user.getNickname());
         vo.setAvatar(user.getAvatar());
-        vo.setRole(user.getRole());
-        vo.setStatus(user.getStatus());
+        vo.setRole(user.getRole().getCode());
+        vo.setStatus(user.getStatus().getCode());
         vo.setCreatedAt(user.getCreatedAt());
         return vo;
     }

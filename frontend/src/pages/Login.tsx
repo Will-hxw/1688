@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Form, Input, Button, Card, message } from 'antd'
+import { Form, Input, Button, Card } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { login } from '../api/auth'
 import type { LoginParams } from '../api/auth'
 import { useAuthStore } from '../stores/authStore'
+import { showMessage } from '../utils/messageHolder'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -15,8 +16,15 @@ const Login = () => {
     setLoading(true)
     try {
       const result = await login(values)
-      setAuth(result.token, result.user)
-      message.success('登录成功')
+      // 将后端返回的扁平结构转换为前端需要的user对象
+      const user = {
+        id: result.userId,
+        username: result.username,
+        nickname: result.nickname,
+        role: result.role
+      }
+      setAuth(result.token, user)
+      showMessage.success('登录成功')
       navigate('/')
     } catch {
       // 错误已在拦截器中处理

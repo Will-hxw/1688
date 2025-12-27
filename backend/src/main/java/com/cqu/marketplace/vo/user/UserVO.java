@@ -1,7 +1,5 @@
 package com.cqu.marketplace.vo.user;
 
-import com.cqu.marketplace.common.enums.Role;
-import com.cqu.marketplace.common.enums.UserStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -25,10 +23,10 @@ public class UserVO {
     private String avatar;
     
     /** 角色 */
-    private Role role;
+    private String role;
     
     /** 状态 */
-    private UserStatus status;
+    private String status;
     
     /** 创建时间 */
     private LocalDateTime createdAt;

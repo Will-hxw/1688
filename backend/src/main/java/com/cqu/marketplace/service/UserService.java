@@ -1,6 +1,7 @@
 package com.cqu.marketplace.service;
 
 import com.cqu.marketplace.common.PageResult;
+import com.cqu.marketplace.dto.user.UpdateProfileRequest;
 import com.cqu.marketplace.vo.product.ProductVO;
 import com.cqu.marketplace.vo.user.UserVO;
 
@@ -13,6 +14,11 @@ public interface UserService {
      * 获取当前用户信息
      */
     UserVO getCurrentUser(Long userId);
+    
+    /**
+     * 更新个人信息
+     */
+    void updateProfile(Long userId, UpdateProfileRequest request);
     
     /**
      * 获取我的商品列表

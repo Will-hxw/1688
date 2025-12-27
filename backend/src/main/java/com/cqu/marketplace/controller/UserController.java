@@ -2,6 +2,8 @@ package com.cqu.marketplace.controller;
 
 import com.cqu.marketplace.common.PageResult;
 import com.cqu.marketplace.common.Result;
+import com.cqu.marketplace.dto.user.UpdateProfileRequest;
+import com.cqu.marketplace.security.UserPrincipal;
 import com.cqu.marketplace.service.UserService;
 import com.cqu.marketplace.vo.product.ProductVO;
 import com.cqu.marketplace.vo.user.UserVO;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * 用户控制器
  */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
     
@@ -23,9 +25,20 @@ public class UserController {
      * 获取当前用户信息
      */
     @GetMapping("/me")
-    public Result<UserVO> getCurrentUser(@AuthenticationPrincipal Long userId) {
-        UserVO user = userService.getCurrentUser(userId);
-        return Result.success(user);
+    public Result<UserVO> getCurrentUser(@AuthenticationPrincipal UserPrincipal user) {
+        UserVO userVO = userService.getCurrentUser(user.getId());
+        return Result.success(userVO);
+    }
+    
+    /**
+     * 更新当前用户信息
+     */
+    @PutMapping("/me")
+    public Result<Void> updateProfile(
+            @AuthenticationPrincipal UserPrincipal user,
+            @RequestBody UpdateProfileRequest request) {
+        userService.updateProfile(user.getId(), request);
+        return Result.success();
     }
     
     /**
@@ -33,10 +46,10 @@ public class UserController {
      */
     @GetMapping("/me/products")
     public Result<PageResult<ProductVO>> getMyProducts(
-            @AuthenticationPrincipal Long userId,
+            @AuthenticationPrincipal UserPrincipal user,
             @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "10") Integer pageSize) {
-        PageResult<ProductVO> result = userService.getMyProducts(userId, page, pageSize);
+        PageResult<ProductVO> result = userService.getMyProducts(user.getId(), page, pageSize);
         return Result.success(result);
     }
 }

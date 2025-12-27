@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Layout, Input, Button, Dropdown, Avatar, Space, message } from 'antd'
+import { Layout, Input, Button, Dropdown, Avatar, Space } from 'antd'
 import { UserOutlined, ShopOutlined, ShoppingCartOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons'
+import { showMessage } from '../utils/messageHolder'
 import { useAuthStore } from '../stores/authStore'
 import type { MenuProps } from 'antd'
 
@@ -19,11 +20,17 @@ const MainLayout = () => {
 
   const handleLogout = () => {
     logout()
-    message.success('已退出登录')
+    showMessage.success('已退出登录')
     navigate('/')
   }
 
   const userMenuItems: MenuProps['items'] = [
+    {
+      key: 'profile',
+      icon: <UserOutlined />,
+      label: '个人信息',
+      onClick: () => navigate('/profile'),
+    },
     {
       key: 'my-products',
       icon: <ShopOutlined />,

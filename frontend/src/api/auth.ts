@@ -13,13 +13,10 @@ export interface RegisterParams {
 
 export interface LoginResult {
   token: string
-  user: {
-    id: number
-    username: string
-    nickname: string
-    avatar?: string
-    role: 'USER' | 'ADMIN'
-  }
+  userId: number
+  username: string
+  nickname: string
+  role: 'USER' | 'ADMIN'
 }
 
 // 登录

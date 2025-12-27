@@ -1,9 +1,5 @@
 # CQU抽象集市 - 校园二手商品交易平台
 
-## 项目简介
-
-CQU抽象集市是一个面向校园师生的二手商品交易平台，采用前后端分离架构，UI风格参考1688电商平台。系统支持用户发布、搜索、购买二手商品，并提供完整的订单管理和评价功能。
-
 ## 技术栈
 
 ### 后端
@@ -25,7 +21,7 @@ CQU抽象集市是一个面向校园师生的二手商品交易平台，采用�
 - Docker & Docker Compose
 - Nginx反向代理
 
-## 快速开始
+## 开始
 
 ### 环境要求
 
@@ -34,29 +30,11 @@ CQU抽象集市是一个面向校园师生的二手商品交易平台，采用�
 
 ### 一键部署
 
-1. **配置环境变量**
-```bash
-vim .env
-```
-
-1. **创建上传目录**
-```bash
-mkdir -p uploads
-```
-
 1. **启动服务**
 ```bash
-# 构建并启动所有服务
-docker-compose up -d --build
-
-# 查看服务状态
-docker-compose ps
-
-# 查看日志
-docker-compose logs -f
+docker-compose up -d --build backend nginx
 ```
-
-5. **访问应用**
+2. **访问应用**
 - 前端页面: http://localhost
 - API文档: http://localhost/swagger-ui/index.html
 - 默认管理员账号: xiaoweihua / cqu
@@ -64,11 +42,7 @@ docker-compose logs -f
 ### 停止服务
 
 ```bash
-# 停止所有服务
 docker-compose down
-
-# 停止并删除数据卷（清除所有数据）
-docker-compose down -v
 ```
 
 ## 项目结构
@@ -106,7 +80,7 @@ cqu-marketplace/
 
 | 变量名 | 说明 | 默认值 |
 |--------|------|--------|
-| NGINX_PORT | Nginx对外端口 | 80 |
+| NGINX_PORT | Nginx对外端口 | 8080 |
 | MYSQL_ROOT_PASSWORD | MySQL root密码 | root |
 | MYSQL_DATABASE | 数据库名称 | cqu_marketplace |
 | MYSQL_USER | 数据库用户名 | marketplace |
@@ -124,55 +98,6 @@ cqu-marketplace/
 | /uploads/* | 静态文件 | 上传的图片 |
 | /swagger-ui/* | 后端服务 | API文档 |
 | /* | 前端静态资源 | React SPA |
-
-## 开发指南
-
-### 本地开发
-
-#### 后端开发
-
-```bash
-cd backend
-
-# 安装依赖
-mvn install
-
-# 启动开发服务器（需要本地MySQL和Redis）
-mvn spring-boot:run
-
-# 运行测试
-mvn test
-```
-
-#### 前端开发
-
-```bash
-cd frontend
-
-# 安装依赖
-npm install
-
-# 启动开发服务器
-npm run dev
-
-# 构建生产版本
-npm run build
-```
-
-### 数据库迁移
-
-数据库迁移脚本位于 `backend/src/main/resources/db/migration/` 目录：
-
-- `V1__init_schema.sql` - 初始化表结构
-- `V2__init_admin.sql` - 初始化管理员账户
-
-Flyway会在应用启动时自动执行迁移。
-
-## API文档
-
-启动服务后访问 Swagger UI 查看完整API文档：
-- 本地开发: http://localhost:8080/api/swagger-ui/index.html
-- Docker部署: http://localhost/swagger-ui/index.html
 
 ### 主要API端点
 

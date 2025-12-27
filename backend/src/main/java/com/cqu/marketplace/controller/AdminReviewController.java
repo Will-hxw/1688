@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * 管理员评价控制器
  */
 @RestController
-@RequestMapping("/api/admin/reviews")
+@RequestMapping("/admin/reviews")
 @RequiredArgsConstructor
 public class AdminReviewController {
     

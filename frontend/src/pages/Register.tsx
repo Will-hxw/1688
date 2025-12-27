@@ -1,20 +1,34 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Form, Input, Button, Card, message } from 'antd'
+import { Form, Input, Button, Card } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import { register } from '../api/auth'
+import { register, login } from '../api/auth'
 import type { RegisterParams } from '../api/auth'
+import { useAuthStore } from '../stores/authStore'
+import { showMessage } from '../utils/messageHolder'
 
 const Register = () => {
   const navigate = useNavigate()
+  const { setAuth } = useAuthStore()
   const [loading, setLoading] = useState(false)
 
   const onFinish = async (values: RegisterParams) => {
     setLoading(true)
     try {
+      // 注册
       await register(values)
-      message.success('注册成功，请登录')
-      navigate('/login')
+      // 注册成功后自动登录
+      const result = await login({ username: values.username, password: values.password })
+      // 将后端返回的扁平结构转换为前端需要的user对象
+      const user = {
+        id: result.userId,
+        username: result.username,
+        nickname: result.nickname,
+        role: result.role
+      }
+      setAuth(result.token, user)
+      showMessage.success('注册成功')
+      navigate('/')
     } catch {
       // 错误已在拦截器中处理
     } finally {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Card, Table, Button, Space, Tag, Modal, Form, Rate, Input, message, Popconfirm } from 'antd'
+import { Card, Table, Button, Space, Tag, Modal, Form, Rate, Input, Popconfirm } from 'antd'
 import { getBuyerOrders, receiveOrder, cancelOrder } from '../api/order'
+import { showMessage } from '../utils/messageHolder'
 import type { Order } from '../api/order'
 import { createReview } from '../api/review'
 import type { CreateReviewParams } from '../api/review'
@@ -44,7 +45,7 @@ const BuyerOrders = () => {
   const handleReceive = async (orderId: number) => {
     try {
       await receiveOrder(orderId)
-      message.success('确认收货成功')
+      showMessage.success('确认收货成功')
       fetchOrders()
     } catch {
       // 错误已在拦截器中处理
@@ -54,7 +55,7 @@ const BuyerOrders = () => {
   const handleCancel = async (orderId: number) => {
     try {
       await cancelOrder(orderId)
-      message.success('取消订单成功')
+      showMessage.success('取消订单成功')
       fetchOrders()
     } catch {
       // 错误已在拦截器中处理
@@ -71,7 +72,7 @@ const BuyerOrders = () => {
     if (!reviewingOrder) return
     try {
       await createReview({ ...values, orderId: reviewingOrder.id })
-      message.success('评价成功')
+      showMessage.success('评价成功')
       setReviewModalVisible(false)
       fetchOrders()
     } catch {
