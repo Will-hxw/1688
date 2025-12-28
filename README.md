@@ -81,7 +81,7 @@ cqu-marketplace/
 
 | 变量名 | 说明 | 默认值 |
 |--------|------|--------|
-| NGINX_PORT | Nginx对外端口 | 8080 |
+| NGINX_PORT | Nginx对外端口 | 8082 |
 | MYSQL_ROOT_PASSWORD | MySQL root密码 | root |
 | MYSQL_DATABASE | 数据库名称 | cqu_marketplace |
 | MYSQL_USER | 数据库用户名 | marketplace |
