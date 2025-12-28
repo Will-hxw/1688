@@ -4,6 +4,8 @@
 # CQU抽象集市后端API演示脚本
 # 使用curl命令演示所有API功能
 # ============================================
+docker cp demo/demo-data.sql cqu-marketplace-mysql:/tmp/demo-data.sql
+docker exec cqu-marketplace-mysql mysql -u root -proot --default-character-set=utf8mb4 cqu_marketplace -e "source /tmp/demo-data.sql"
 
 BASE_URL="http://localhost:8081/api"
 USER_TOKEN=""
@@ -81,11 +83,12 @@ USER_TOKEN=$(echo "$RESPONSE" | jq -r '.data.token // empty')
 wait_key
 
 print_step "1.3 卖家登录（zhangsan）POST /auth/login"
+# 注意：demo-data.sql 中用户密码是 123456
 RESPONSE=$(curl -s -X POST "$BASE_URL/auth/login" \
   -H "Content-Type: application/json" \
   -d '{
     "username": "zhangsan",
-    "password": "password123"
+    "password": "123456"
   }')
 echo "$RESPONSE" | jq '.'
 SELLER_TOKEN=$(echo "$RESPONSE" | jq -r '.data.token // empty')
@@ -117,7 +120,8 @@ curl -s "$BASE_URL/products?keyword=iPhone&page=1&pageSize=5" | jq '.'
 wait_key
 
 print_step "2.2 按分类搜索 GET /products?category=电子产品"
-curl -s "$BASE_URL/products?category=电子产品&page=1&pageSize=5" | jq '.'
+# 注意：中文参数需要URL编码
+curl -s "$BASE_URL/products?category=%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81&page=1&pageSize=5" | jq '.'
 
 wait_key
 
@@ -132,25 +136,29 @@ curl -s "$BASE_URL/products/1" | jq '.'
 wait_key
 
 print_step "2.5 发布商品 POST /products（需登录）"
-RESPONSE=$(curl -s -X POST "$BASE_URL/products" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $SELLER_TOKEN" \
-  -d '{
-    "name": "测试商品-二手键盘",
-    "description": "机械键盘，青轴，使用半年，手感很好",
-    "price": 199.00,
-    "imageUrl": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400",
-    "category": "电子产品",
-    "stock": 1
-  }')
-echo "$RESPONSE" | jq '.'
-PRODUCT_ID=$(echo "$RESPONSE" | jq -r '.data // empty')
-[ -n "$PRODUCT_ID" ] && print_success "商品发布成功，ID: $PRODUCT_ID" || print_error "发布失败"
+if [ -n "$SELLER_TOKEN" ]; then
+    RESPONSE=$(curl -s -X POST "$BASE_URL/products" \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $SELLER_TOKEN" \
+      -d '{
+        "name": "测试商品-二手键盘",
+        "description": "机械键盘，青轴，使用半年，手感很好",
+        "price": 199.00,
+        "imageUrl": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400",
+        "category": "电子产品",
+        "stock": 1
+      }')
+    echo "$RESPONSE" | jq '.'
+    PRODUCT_ID=$(echo "$RESPONSE" | jq -r '.data // empty')
+    [ -n "$PRODUCT_ID" ] && print_success "商品发布成功，ID: $PRODUCT_ID" || print_error "发布失败"
+else
+    print_error "卖家未登录，跳过发布商品测试"
+fi
 
 wait_key
 
 print_step "2.6 更新商品 PUT /products/$PRODUCT_ID"
-if [ -n "$PRODUCT_ID" ]; then
+if [ -n "$PRODUCT_ID" ] && [ -n "$SELLER_TOKEN" ]; then
     curl -s -X PUT "$BASE_URL/products/$PRODUCT_ID" \
       -H "Content-Type: application/json" \
       -H "Authorization: Bearer $SELLER_TOKEN" \
@@ -162,6 +170,8 @@ if [ -n "$PRODUCT_ID" ]; then
         "category": "电子产品",
         "stock": 1
       }' | jq '.'
+else
+    print_error "商品ID或卖家Token为空，跳过更新商品测试"
 fi
 
 wait_key
@@ -193,20 +203,29 @@ curl -s "$BASE_URL/orders/buyer?page=1&pageSize=10" \
 wait_key
 
 print_step "3.3 卖家订单列表 GET /orders/seller"
-curl -s "$BASE_URL/orders/seller?page=1&pageSize=10" \
-  -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+if [ -n "$SELLER_TOKEN" ]; then
+    curl -s "$BASE_URL/orders/seller?page=1&pageSize=10" \
+      -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+else
+    print_error "卖家未登录，跳过卖家订单列表测试"
+fi
 
 wait_key
 
 print_step "3.4 卖家发货 POST /orders/{id}/ship"
-# 使用演示数据中的CREATED订单
-curl -s -X POST "$BASE_URL/orders/16/ship" \
-  -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+# 使用演示数据中的CREATED订单（订单17，卖家是zhangsan/id=2）
+if [ -n "$SELLER_TOKEN" ]; then
+    curl -s -X POST "$BASE_URL/orders/17/ship" \
+      -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+else
+    print_error "卖家未登录，跳过发货测试"
+fi
 
 wait_key
 
 print_step "3.5 买家确认收货 POST /orders/{id}/receive"
-# 使用演示数据中的SHIPPED订单
+# 订单11的买家是周八(id=7)，不是testbuyer，此测试预期返回403
+echo "注意：订单11的买家是周八，不是testbuyer，此测试预期返回403"
 curl -s -X POST "$BASE_URL/orders/11/receive" \
   -H "Authorization: Bearer $USER_TOKEN" | jq '.'
 
@@ -231,7 +250,8 @@ curl -s "$BASE_URL/products/4/reviews?page=1&pageSize=10" | jq '.'
 wait_key
 
 print_step "4.2 创建评价 POST /reviews（需RECEIVED状态订单）"
-# 使用演示数据中的RECEIVED订单
+# 订单6的买家是陈三学姐(id=12)，不是testbuyer，此测试预期返回403
+echo "注意：订单6的买家是陈三学姐，不是testbuyer，此测试预期返回403"
 curl -s -X POST "$BASE_URL/reviews" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $USER_TOKEN" \
@@ -272,8 +292,12 @@ curl -s -X PUT "$BASE_URL/users/me" \
 wait_key
 
 print_step "5.3 我的商品列表 GET /users/me/products"
-curl -s "$BASE_URL/users/me/products?page=1&pageSize=10" \
-  -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+if [ -n "$SELLER_TOKEN" ]; then
+    curl -s "$BASE_URL/users/me/products?page=1&pageSize=10" \
+      -H "Authorization: Bearer $SELLER_TOKEN" | jq '.'
+else
+    print_error "卖家未登录，跳过我的商品列表测试"
+fi
 
 wait_key
 
@@ -282,11 +306,22 @@ wait_key
 # ============================================
 print_section "6. 文件上传 /api/upload"
 
-print_step "6.1 上传图片 POST /upload（需要实际图片文件）"
-echo "示例命令："
-echo 'curl -X POST "$BASE_URL/upload" \'
-echo '  -H "Authorization: Bearer $TOKEN" \'
-echo '  -F "file=@/path/to/image.jpg"'
+print_step "6.1 上传图片 POST /upload"
+# 创建一个临时测试图片（1x1像素的PNG）
+TEST_IMAGE="/tmp/test_image_$$.png"
+echo -n 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' | base64 -d > "$TEST_IMAGE" 2>/dev/null
+
+if [ -f "$TEST_IMAGE" ]; then
+    curl -s -X POST "$BASE_URL/upload" \
+      -H "Authorization: Bearer $USER_TOKEN" \
+      -F "file=@$TEST_IMAGE" | jq '.'
+    rm -f "$TEST_IMAGE"
+else
+    echo "无法创建测试图片，显示示例命令："
+    echo 'curl -X POST "$BASE_URL/upload" \'
+    echo '  -H "Authorization: Bearer $TOKEN" \'
+    echo '  -F "file=@/path/to/image.jpg"'
+fi
 
 wait_key
 
@@ -302,12 +337,16 @@ curl -s "$BASE_URL/admin/users?page=1&pageSize=10" \
 wait_key
 
 print_step "7.2 禁用用户 PUT /admin/users/{id}/disable"
-echo "示例：curl -X PUT \"\$BASE_URL/admin/users/2/disable\" -H \"Authorization: Bearer \$ADMIN_TOKEN\""
+# 禁用用户ID=9（郑十），不影响主要测试用户
+curl -s -X PUT "$BASE_URL/admin/users/9/disable" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq '.'
 
 wait_key
 
 print_step "7.3 启用用户 PUT /admin/users/{id}/enable"
-echo "示例：curl -X PUT \"\$BASE_URL/admin/users/2/enable\" -H \"Authorization: Bearer \$ADMIN_TOKEN\""
+# 立即重新启用，恢复数据
+curl -s -X PUT "$BASE_URL/admin/users/9/enable" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq '.'
 
 wait_key
 
@@ -324,7 +363,8 @@ curl -s "$BASE_URL/admin/orders?page=1&pageSize=10" \
 wait_key
 
 print_step "7.6 修改订单状态 PUT /admin/orders/{id}/status"
-curl -s -X PUT "$BASE_URL/admin/orders/17/status" \
+# 订单16是CREATED状态，可以改为SHIPPED
+curl -s -X PUT "$BASE_URL/admin/orders/16/status" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -d '{"status": "SHIPPED"}' | jq '.'
@@ -338,7 +378,10 @@ curl -s "$BASE_URL/admin/reviews?page=1&pageSize=10" \
 wait_key
 
 print_step "7.8 删除评价 DELETE /admin/reviews/{id}"
-echo "示例：curl -X DELETE \"\$BASE_URL/admin/reviews/1\" -H \"Authorization: Bearer \$ADMIN_TOKEN\""
+# 软删除评价ID=5（可恢复），不会真正丢失数据
+curl -s -X DELETE "$BASE_URL/admin/reviews/5" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" | jq '.'
+echo "注意：评价是软删除，数据库中 deleted=1，可通过SQL恢复"
 
 wait_key
 
