@@ -3,8 +3,10 @@ package com.cqu.marketplace.product.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cqu.marketplace.common.PageResult;
+import com.cqu.marketplace.common.Result;
 import com.cqu.marketplace.common.enums.ProductStatus;
 import com.cqu.marketplace.common.exception.BusinessException;
+import com.cqu.marketplace.product.client.UserClient;
 import com.cqu.marketplace.product.dto.ProductCreateRequest;
 import com.cqu.marketplace.product.dto.ProductSearchRequest;
 import com.cqu.marketplace.product.dto.ProductUpdateRequest;
@@ -12,6 +14,7 @@ import com.cqu.marketplace.product.entity.Product;
 import com.cqu.marketplace.product.mapper.ProductMapper;
 import com.cqu.marketplace.product.service.ProductService;
 import com.cqu.marketplace.product.vo.ProductVO;
+import com.cqu.marketplace.product.vo.UserInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +35,7 @@ import java.util.stream.Collectors;
 public class ProductServiceImpl implements ProductService {
     
     private final ProductMapper productMapper;
+    private final UserClient userClient;
     
     @Override
     @Transactional
@@ -154,13 +160,21 @@ public class ProductServiceImpl implements ProductService {
             .map(this::convertToVO)
             .collect(Collectors.toList());
         
+        // 批量获取卖家昵称
+        fillSellerNicknames(voList);
+        
         return PageResult.of(request.getPage(), request.getPageSize(), result.getTotal(), voList);
     }
     
     @Override
     public ProductVO getProductDetail(Long productId) {
         Product product = getProductById(productId);
-        return convertToVO(product);
+        ProductVO vo = convertToVO(product);
+        
+        // 获取卖家昵称
+        fillSellerNickname(vo);
+        
+        return vo;
     }
     
     @Override
@@ -187,6 +201,9 @@ public class ProductServiceImpl implements ProductService {
             .map(this::convertToVO)
             .collect(Collectors.toList());
         
+        // 批量获取卖家昵称
+        fillSellerNicknames(voList);
+        
         return PageResult.of(page, pageSize, result.getTotal(), voList);
     }
     
@@ -203,7 +220,7 @@ public class ProductServiceImpl implements ProductService {
     }
     
     /**
-     * 转换为VO（微服务架构下不获取卖家昵称，由前端或网关聚合）
+     * 转换为VO
      */
     private ProductVO convertToVO(Product product) {
         ProductVO vo = new ProductVO();
@@ -218,5 +235,53 @@ public class ProductServiceImpl implements ProductService {
         vo.setStatus(product.getStatus().getCode());
         vo.setCreatedAt(product.getCreatedAt());
         return vo;
+    }
+    
+    /**
+     * 填充单个商品的卖家昵称
+     */
+    private void fillSellerNickname(ProductVO vo) {
+        try {
+            Result<UserInfo> result = userClient.getUserById(vo.getSellerId());
+            if (result != null && result.getCode() == 200 && result.getData() != null) {
+                vo.setSellerNickname(result.getData().getNickname());
+            }
+        } catch (Exception e) {
+            log.warn("获取卖家昵称失败: sellerId={}, error={}", vo.getSellerId(), e.getMessage());
+        }
+    }
+    
+    /**
+     * 批量填充卖家昵称
+     */
+    private void fillSellerNicknames(List<ProductVO> voList) {
+        if (voList == null || voList.isEmpty()) {
+            return;
+        }
+        
+        // 收集所有卖家ID
+        Set<Long> sellerIds = voList.stream()
+            .map(ProductVO::getSellerId)
+            .collect(Collectors.toSet());
+        
+        // 批量获取卖家信息
+        Map<Long, String> nicknameMap = sellerIds.stream()
+            .collect(Collectors.toMap(
+                id -> id,
+                id -> {
+                    try {
+                        Result<UserInfo> result = userClient.getUserById(id);
+                        if (result != null && result.getCode() == 200 && result.getData() != null) {
+                            return result.getData().getNickname();
+                        }
+                    } catch (Exception e) {
+                        log.warn("获取卖家昵称失败: sellerId={}, error={}", id, e.getMessage());
+                    }
+                    return "未知用户";
+                }
+            ));
+        
+        // 填充昵称
+        voList.forEach(vo -> vo.setSellerNickname(nicknameMap.get(vo.getSellerId())));
     }
 }

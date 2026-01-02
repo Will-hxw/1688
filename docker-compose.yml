@@ -199,10 +199,13 @@ services:
       - SPRING_DATASOURCE_USERNAME=${PRODUCT_DB_USER:-product}
       - SPRING_DATASOURCE_PASSWORD=${PRODUCT_DB_PASSWORD:-product123}
       - UPLOAD_PATH=/app/uploads
+      - AUTH_USER_SERVICE_URL=http://auth-user-service:8081
     volumes:
       - ./uploads:/app/uploads
     depends_on:
       product-db:
+        condition: service_healthy
+      auth-user-service:
         condition: service_healthy
     networks:
       - cqu-network

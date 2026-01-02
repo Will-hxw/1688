@@ -52,6 +52,11 @@ management:
     health:
       show-details: always
 
+# 服务间通信 URL
+services:
+  auth-user:
+    url: ${AUTH_USER_SERVICE_URL:http://auth-user-service:8081}
+
 logging:
   level:
     com.cqu.marketplace: DEBUG
