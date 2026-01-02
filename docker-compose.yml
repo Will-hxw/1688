@@ -1,72 +1,27 @@
+# CQU抽象集市 - 微服务架构 Docker Compose 配置
+# 包含：5个微服务 + 4个独立数据库 + Redis + Nginx
+
 services:
-  # Nginx反向代理
+  # ==================== 基础设施层 ====================
+  
+  # Nginx 反向代理
   nginx:
     build:
       context: .
       dockerfile: nginx/Dockerfile
     container_name: cqu-marketplace-nginx
     ports:
-      - "8082:80"  # 使用8082端口避免冲突
+      - "${NGINX_PORT:-8082}:80"
     volumes:
       - ./uploads:/var/www/uploads:ro
     depends_on:
-      - backend
-    networks:
-      - cqu-network
-    restart: unless-stopped
-
-  # 后端服务
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: cqu-marketplace-backend
-    ports:
-      - "8081:8080"  # 映射到8081端口避免冲突
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-cqu_marketplace}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=${MYSQL_USER:-root}
-      - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD:-root}
-      - SPRING_DATA_REDIS_HOST=redis
-      - SPRING_DATA_REDIS_PORT=6379
-      - SPRING_DATA_REDIS_PASSWORD=${REDIS_PASSWORD:-}
-      - JWT_SECRET=${JWT_SECRET:-cqu-marketplace-secret-key-must-be-at-least-256-bits-long-for-hs256}
-      - UPLOAD_PATH=/app/uploads
-    volumes:
-      - ./uploads:/app/uploads
-    depends_on:
-      mysql:
-        condition: service_healthy
-      redis:
+      gateway:
         condition: service_healthy
     networks:
       - cqu-network
     restart: unless-stopped
 
-  # MySQL数据库
-  mysql:
-    image: mysql:8.0
-    container_name: cqu-marketplace-mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
-      - MYSQL_DATABASE=${MYSQL_DATABASE:-cqu_marketplace}
-      - MYSQL_USER=${MYSQL_USER:-marketplace}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-marketplace123}
-    volumes:
-      - mysql-data:/var/lib/mysql
-    ports:
-      - "${MYSQL_PORT:-3306}:3306"
-    networks:
-      - cqu-network
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
-    restart: unless-stopped
-
-  # Redis缓存
+  # Redis 缓存（订单幂等键）
   redis:
     image: redis:7-alpine
     container_name: cqu-marketplace-redis
@@ -84,10 +39,274 @@ services:
       retries: 5
     restart: unless-stopped
 
+  # ==================== 数据库层（4个独立数据库） ====================
+  
+  # Auth-User 数据库
+  auth-user-db:
+    image: mysql:8.0
+    container_name: cqu-marketplace-auth-user-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=auth_user_db
+      - MYSQL_USER=${AUTH_USER_DB_USER:-authuser}
+      - MYSQL_PASSWORD=${AUTH_USER_DB_PASSWORD:-authuser123}
+    volumes:
+      - auth-user-db-data:/var/lib/mysql
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # Product 数据库
+  product-db:
+    image: mysql:8.0
+    container_name: cqu-marketplace-product-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=product_db
+      - MYSQL_USER=${PRODUCT_DB_USER:-product}
+      - MYSQL_PASSWORD=${PRODUCT_DB_PASSWORD:-product123}
+    volumes:
+      - product-db-data:/var/lib/mysql
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # Order 数据库
+  order-db:
+    image: mysql:8.0
+    container_name: cqu-marketplace-order-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=order_db
+      - MYSQL_USER=${ORDER_DB_USER:-orderuser}
+      - MYSQL_PASSWORD=${ORDER_DB_PASSWORD:-order123}
+    volumes:
+      - order-db-data:/var/lib/mysql
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # Review 数据库
+  review-db:
+    image: mysql:8.0
+    container_name: cqu-marketplace-review-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=review_db
+      - MYSQL_USER=${REVIEW_DB_USER:-review}
+      - MYSQL_PASSWORD=${REVIEW_DB_PASSWORD:-review123}
+    volumes:
+      - review-db-data:/var/lib/mysql
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # ==================== 微服务层 ====================
+  
+  # API 网关
+  gateway:
+    build:
+      context: ./services
+      dockerfile: gateway-service/Dockerfile
+    container_name: cqu-marketplace-gateway
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      - SERVER_PORT=8080
+      - JWT_SECRET=${JWT_SECRET:-cqu-marketplace-secret-key-must-be-at-least-256-bits-long-for-hs256}
+      # 下游服务地址
+      - AUTH_USER_SERVICE_URL=http://auth-user-service:8081
+      - PRODUCT_SERVICE_URL=http://product-service:8082
+      - ORDER_SERVICE_URL=http://order-service:8083
+      - REVIEW_SERVICE_URL=http://review-service:8084
+    depends_on:
+      auth-user-service:
+        condition: service_healthy
+      product-service:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+      review-service:
+        condition: service_healthy
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # Auth-User 服务
+  auth-user-service:
+    build:
+      context: ./services
+      dockerfile: auth-user-service/Dockerfile
+    container_name: cqu-marketplace-auth-user-service
+    environment:
+      - SERVER_PORT=8081
+      - SPRING_DATASOURCE_URL=jdbc:mysql://auth-user-db:3306/auth_user_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=${AUTH_USER_DB_USER:-authuser}
+      - SPRING_DATASOURCE_PASSWORD=${AUTH_USER_DB_PASSWORD:-authuser123}
+      - JWT_SECRET=${JWT_SECRET:-cqu-marketplace-secret-key-must-be-at-least-256-bits-long-for-hs256}
+    depends_on:
+      auth-user-db:
+        condition: service_healthy
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # Product 服务
+  product-service:
+    build:
+      context: ./services
+      dockerfile: product-service/Dockerfile
+    container_name: cqu-marketplace-product-service
+    environment:
+      - SERVER_PORT=8082
+      - SPRING_DATASOURCE_URL=jdbc:mysql://product-db:3306/product_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=${PRODUCT_DB_USER:-product}
+      - SPRING_DATASOURCE_PASSWORD=${PRODUCT_DB_PASSWORD:-product123}
+      - UPLOAD_PATH=/app/uploads
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      product-db:
+        condition: service_healthy
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # Order 服务
+  order-service:
+    build:
+      context: ./services
+      dockerfile: order-service/Dockerfile
+    container_name: cqu-marketplace-order-service
+    environment:
+      - SERVER_PORT=8083
+      - SPRING_DATASOURCE_URL=jdbc:mysql://order-db:3306/order_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=${ORDER_DB_USER:-orderuser}
+      - SPRING_DATASOURCE_PASSWORD=${ORDER_DB_PASSWORD:-order123}
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_PASSWORD=${REDIS_PASSWORD:-}
+      - PRODUCT_SERVICE_URL=http://product-service:8082
+    depends_on:
+      order-db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      product-service:
+        condition: service_healthy
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # Review 服务
+  review-service:
+    build:
+      context: ./services
+      dockerfile: review-service/Dockerfile
+    container_name: cqu-marketplace-review-service
+    environment:
+      - SERVER_PORT=8084
+      - SPRING_DATASOURCE_URL=jdbc:mysql://review-db:3306/review_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=${REVIEW_DB_USER:-review}
+      - SPRING_DATASOURCE_PASSWORD=${REVIEW_DB_PASSWORD:-review123}
+      - ORDER_SERVICE_URL=http://order-service:8083
+      - PRODUCT_SERVICE_URL=http://product-service:8082
+      - AUTH_USER_SERVICE_URL=http://auth-user-service:8081
+    depends_on:
+      review-db:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+    networks:
+      - cqu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # ==================== 原单体应用（保留作为参考，默认禁用） ====================
+  
+  # 原单体后端（可选启用）
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: cqu-marketplace-backend
+  #   ports:
+  #     - "8081:8080"
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-cqu_marketplace}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+  #     - SPRING_DATASOURCE_USERNAME=${MYSQL_USER:-root}
+  #     - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD:-root}
+  #     - SPRING_DATA_REDIS_HOST=redis
+  #     - SPRING_DATA_REDIS_PORT=6379
+  #     - SPRING_DATA_REDIS_PASSWORD=${REDIS_PASSWORD:-}
+  #     - JWT_SECRET=${JWT_SECRET:-cqu-marketplace-secret-key-must-be-at-least-256-bits-long-for-hs256}
+  #     - UPLOAD_PATH=/app/uploads
+  #   volumes:
+  #     - ./uploads:/app/uploads
+  #   networks:
+  #     - cqu-network
+  #   restart: unless-stopped
+
 networks:
   cqu-network:
     driver: bridge
 
 volumes:
-  mysql-data:
   redis-data:
+  auth-user-db-data:
+  product-db-data:
+  order-db-data:
+  review-db-data:

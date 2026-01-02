@@ -1,0 +1,16 @@
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\client\ProductClient.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\config\MyBatisMetaObjectHandler.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\controller\OrderController.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\service\impl\OrderServiceImpl.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\config\FeignErrorDecoder.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\OrderServiceApplication.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\controller\AdminOrderController.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\vo\OrderInfo.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\vo\ProductSnapshot.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\dto\OrderCreateRequest.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\dto\StockRequest.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\controller\internal\InternalOrderController.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\vo\OrderVO.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\service\OrderService.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\entity\Order.java
+D:\Study-hxw\Project\1699分布式微服务\services\order-service\src\main\java\com\cqu\marketplace\order\mapper\OrderMapper.java

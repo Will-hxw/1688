@@ -1,0 +1,107 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      # 全局 CORS 配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            exposedHeaders:
+              - Authorization
+              - X-User-Id
+              - X-User-Role
+            maxAge: 3600
+      
+      # 路由配置
+      routes:
+        # Review Service - 商品评价路由（必须在 product-service 之前）
+        # 前端调用 /api/products/{id}/reviews，需要路由到 review-service
+        - id: product-reviews-service
+          uri: ${services.review.url:http://review-service:8084}
+          predicates:
+            - Path=/api/products/{productId}/reviews
+          filters:
+            - StripPrefix=1
+            - RewritePath=/products/(?<productId>\d+)/reviews, /reviews/product/$\{productId}
+        
+        # Product Service - 用户商品路由（必须在 auth-user-service 之前）
+        - id: user-products-service
+          uri: ${services.product.url:http://product-service:8082}
+          predicates:
+            - Path=/api/users/me/products
+          filters:
+            - StripPrefix=1
+        
+        # Auth-User Service 路由
+        - id: auth-user-service
+          uri: ${services.auth-user.url:http://auth-user-service:8081}
+          predicates:
+            - Path=/api/auth/**, /api/users/**, /api/admin/users/**
+          filters:
+            - StripPrefix=1
+        
+        # Product Service 路由
+        - id: product-service
+          uri: ${services.product.url:http://product-service:8082}
+          predicates:
+            - Path=/api/products/**, /api/upload/**, /api/admin/products/**
+          filters:
+            - StripPrefix=1
+        
+        # Order Service 路由
+        - id: order-service
+          uri: ${services.order.url:http://order-service:8083}
+          predicates:
+            - Path=/api/orders/**, /api/admin/orders/**
+          filters:
+            - StripPrefix=1
+        
+        # Review Service 路由
+        - id: review-service
+          uri: ${services.review.url:http://review-service:8084}
+          predicates:
+            - Path=/api/reviews/**, /api/admin/reviews/**
+          filters:
+            - StripPrefix=1
+
+# 服务地址配置（使用环境变量覆盖）
+services:
+  auth-user:
+    url: ${AUTH_USER_SERVICE_URL:http://auth-user-service:8081}
+  product:
+    url: ${PRODUCT_SERVICE_URL:http://product-service:8082}
+  order:
+    url: ${ORDER_SERVICE_URL:http://order-service:8083}
+  review:
+    url: ${REVIEW_SERVICE_URL:http://review-service:8084}
+
+# JWT 配置
+jwt:
+  secret: ${JWT_SECRET:cqu-marketplace-jwt-secret-key-2024-very-long-secret}
+
+# Actuator 健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.cqu.marketplace: DEBUG
+    org.springframework.cloud.gateway: DEBUG

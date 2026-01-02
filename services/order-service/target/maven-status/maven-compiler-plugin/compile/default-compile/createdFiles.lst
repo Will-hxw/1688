@@ -1,0 +1,16 @@
+com\cqu\marketplace\order\config\FeignErrorDecoder.class
+com\cqu\marketplace\order\controller\AdminOrderController.class
+com\cqu\marketplace\order\OrderServiceApplication.class
+com\cqu\marketplace\order\dto\StockRequest.class
+com\cqu\marketplace\order\controller\internal\InternalOrderController.class
+com\cqu\marketplace\order\vo\ProductSnapshot.class
+com\cqu\marketplace\order\service\OrderService.class
+com\cqu\marketplace\order\entity\Order.class
+com\cqu\marketplace\order\vo\OrderInfo.class
+com\cqu\marketplace\order\config\MyBatisMetaObjectHandler.class
+com\cqu\marketplace\order\dto\OrderCreateRequest.class
+com\cqu\marketplace\order\vo\OrderVO.class
+com\cqu\marketplace\order\mapper\OrderMapper.class
+com\cqu\marketplace\order\controller\OrderController.class
+com\cqu\marketplace\order\client\ProductClient.class
+com\cqu\marketplace\order\service\impl\OrderServiceImpl.class

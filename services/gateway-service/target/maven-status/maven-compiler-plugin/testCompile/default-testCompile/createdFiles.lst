@@ -1,0 +1,3 @@
+com\cqu\marketplace\gateway\GatewayRoutePropertyTest.class
+com\cqu\marketplace\gateway\InternalApiIsolationPropertyTest.class
+com\cqu\marketplace\gateway\JwtAuthPropertyTest.class

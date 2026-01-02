@@ -1,0 +1,3 @@
+com\cqu\marketplace\order\OrderIdempotencyPropertyTest.class
+com\cqu\marketplace\order\OrderSnapshotPropertyTest.class
+com\cqu\marketplace\order\OrderStateMachinePropertyTest.class

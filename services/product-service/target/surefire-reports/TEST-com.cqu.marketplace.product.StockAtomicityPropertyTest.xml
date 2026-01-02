@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cqu.marketplace.product.StockAtomicityPropertyTest" time="6.309" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="skipE2ETests" value="true"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\Study-hxw\Project\1699分布式微服务\services\product-service\target\test-classes;D:\Study-hxw\Project\1699分布式微服务\services\product-service\target\classes;D:\Study-hxw\Project\1699分布式微服务\services\common\target\classes;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.1\spring-boot-starter-web-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.1\spring-boot-starter-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot\3.2.1\spring-boot-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.1\spring-boot-starter-logging-3.2.1.jar;C:\Users\HuaXW\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\HuaXW\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\HuaXW\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\HuaXW\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\HuaXW\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\HuaXW\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.1\spring-boot-starter-json-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.1\spring-boot-starter-tomcat-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.17\tomcat-embed-core-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.17\tomcat-embed-websocket-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-web\6.1.2\spring-web-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-beans\6.1.2\spring-beans-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-webmvc\6.1.2\spring-webmvc-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-aop\6.1.2\spring-aop-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-context\6.1.2\spring-context-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-expression\6.1.2\spring-expression-6.1.2.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-spring-boot3-starter\3.5.5\mybatis-plus-spring-boot3-starter-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus\3.5.5\mybatis-plus-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-core\3.5.5\mybatis-plus-core-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-annotation\3.5.5\mybatis-plus-annotation-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-extension\3.5.5\mybatis-plus-extension-3.5.5.jar;C:\Users\HuaXW\.m2\repository\org\mybatis\mybatis\3.5.15\mybatis-3.5.15.jar;C:\Users\HuaXW\.m2\repository\com\github\jsqlparser\jsqlparser\4.6\jsqlparser-4.6.jar;C:\Users\HuaXW\.m2\repository\org\mybatis\mybatis-spring\3.0.3\mybatis-spring-3.0.3.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-spring-boot-autoconfigure\3.5.5\mybatis-plus-spring-boot-autoconfigure-3.5.5.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.1\spring-boot-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.1\spring-boot-starter-jdbc-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-jdbc\6.1.2\spring-jdbc-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-tx\6.1.2\spring-tx-6.1.2.jar;C:\Users\HuaXW\.m2\repository\com\mysql\mysql-connector-j\8.1.0\mysql-connector-j-8.1.0.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.1\spring-boot-starter-validation-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.17\tomcat-embed-el-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\HuaXW\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\HuaXW\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.2.1\spring-boot-starter-actuator-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.2.1\spring-boot-actuator-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-actuator\3.2.1\spring-boot-actuator-3.2.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-observation\1.12.1\micrometer-observation-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-commons\1.12.1\micrometer-commons-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-jakarta9\1.12.1\micrometer-jakarta9-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-core\1.12.1\micrometer-core-1.12.1.jar;C:\Users\HuaXW\.m2\repository\org\hdrhistogram\HdrHistogram\2.1.12\HdrHistogram-2.1.12.jar;C:\Users\HuaXW\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\HuaXW\.m2\repository\org\flywaydb\flyway-core\9.22.3\flyway-core-9.22.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-toml\2.15.3\jackson-dataformat-toml-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\HuaXW\.m2\repository\org\flywaydb\flyway-mysql\9.22.3\flyway-mysql-9.22.3.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.1\spring-boot-starter-test-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-test\3.2.1\spring-boot-test-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.1\spring-boot-test-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\HuaXW\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\HuaXW\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\HuaXW\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\HuaXW\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\HuaXW\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\HuaXW\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\HuaXW\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\HuaXW\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\HuaXW\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\HuaXW\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\HuaXW\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\HuaXW\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\HuaXW\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\HuaXW\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\HuaXW\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-core\6.1.2\spring-core-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-jcl\6.1.2\spring-jcl-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-test\6.1.2\spring-test-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik\1.8.2\jqwik-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-api\1.8.2\jqwik-api-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\HuaXW\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-web\1.8.2\jqwik-web-1.8.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-time\1.8.2\jqwik-time-1.8.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-engine\1.8.2\jqwik-engine-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\HuaXW\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\HuaXW\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\HuaXW\AppData\Local\Temp\surefire5278413936040313756\surefirebooter-20260102171513059_33.jar C:\Users\HuaXW\AppData\Local\Temp\surefire5278413936040313756 2026-01-02T17-15-07_522-jvmRun1 surefire-20260102171513059_31tmp surefire_3-20260102171513059_32tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Study-hxw\Project\1699分布式微服务\services\product-service\target\test-classes;D:\Study-hxw\Project\1699分布式微服务\services\product-service\target\classes;D:\Study-hxw\Project\1699分布式微服务\services\common\target\classes;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.1\spring-boot-starter-web-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.1\spring-boot-starter-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot\3.2.1\spring-boot-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.1\spring-boot-starter-logging-3.2.1.jar;C:\Users\HuaXW\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\HuaXW\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\HuaXW\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\HuaXW\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\HuaXW\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\HuaXW\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.1\spring-boot-starter-json-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.1\spring-boot-starter-tomcat-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.17\tomcat-embed-core-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.17\tomcat-embed-websocket-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-web\6.1.2\spring-web-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-beans\6.1.2\spring-beans-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-webmvc\6.1.2\spring-webmvc-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-aop\6.1.2\spring-aop-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-context\6.1.2\spring-context-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-expression\6.1.2\spring-expression-6.1.2.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-spring-boot3-starter\3.5.5\mybatis-plus-spring-boot3-starter-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus\3.5.5\mybatis-plus-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-core\3.5.5\mybatis-plus-core-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-annotation\3.5.5\mybatis-plus-annotation-3.5.5.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-extension\3.5.5\mybatis-plus-extension-3.5.5.jar;C:\Users\HuaXW\.m2\repository\org\mybatis\mybatis\3.5.15\mybatis-3.5.15.jar;C:\Users\HuaXW\.m2\repository\com\github\jsqlparser\jsqlparser\4.6\jsqlparser-4.6.jar;C:\Users\HuaXW\.m2\repository\org\mybatis\mybatis-spring\3.0.3\mybatis-spring-3.0.3.jar;C:\Users\HuaXW\.m2\repository\com\baomidou\mybatis-plus-spring-boot-autoconfigure\3.5.5\mybatis-plus-spring-boot-autoconfigure-3.5.5.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.1\spring-boot-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.1\spring-boot-starter-jdbc-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-jdbc\6.1.2\spring-jdbc-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-tx\6.1.2\spring-tx-6.1.2.jar;C:\Users\HuaXW\.m2\repository\com\mysql\mysql-connector-j\8.1.0\mysql-connector-j-8.1.0.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.1\spring-boot-starter-validation-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.17\tomcat-embed-el-10.1.17.jar;C:\Users\HuaXW\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\HuaXW\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\HuaXW\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.2.1\spring-boot-starter-actuator-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.2.1\spring-boot-actuator-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-actuator\3.2.1\spring-boot-actuator-3.2.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-observation\1.12.1\micrometer-observation-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-commons\1.12.1\micrometer-commons-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-jakarta9\1.12.1\micrometer-jakarta9-1.12.1.jar;C:\Users\HuaXW\.m2\repository\io\micrometer\micrometer-core\1.12.1\micrometer-core-1.12.1.jar;C:\Users\HuaXW\.m2\repository\org\hdrhistogram\HdrHistogram\2.1.12\HdrHistogram-2.1.12.jar;C:\Users\HuaXW\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\HuaXW\.m2\repository\org\flywaydb\flyway-core\9.22.3\flyway-core-9.22.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-toml\2.15.3\jackson-dataformat-toml-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\HuaXW\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\HuaXW\.m2\repository\org\flywaydb\flyway-mysql\9.22.3\flyway-mysql-9.22.3.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.1\spring-boot-starter-test-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-test\3.2.1\spring-boot-test-3.2.1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.1\spring-boot-test-autoconfigure-3.2.1.jar;C:\Users\HuaXW\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\HuaXW\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\HuaXW\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\HuaXW\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\HuaXW\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\HuaXW\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\HuaXW\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\HuaXW\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\HuaXW\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\HuaXW\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\HuaXW\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\HuaXW\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\HuaXW\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\HuaXW\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\HuaXW\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\HuaXW\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\HuaXW\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-core\6.1.2\spring-core-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-jcl\6.1.2\spring-jcl-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\springframework\spring-test\6.1.2\spring-test-6.1.2.jar;C:\Users\HuaXW\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik\1.8.2\jqwik-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-api\1.8.2\jqwik-api-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\HuaXW\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-web\1.8.2\jqwik-web-1.8.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-time\1.8.2\jqwik-time-1.8.2.jar;C:\Users\HuaXW\.m2\repository\net\jqwik\jqwik-engine\1.8.2\jqwik-engine-1.8.2.jar;C:\Users\HuaXW\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\HuaXW\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\HuaXW\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\HuaXW"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Study-hxw\Project\1699分布式微服务\services\product-service"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="GBK"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\HuaXW\AppData\Local\Temp\surefire5278413936040313756\surefirebooter-20260102171513059_33.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.15+6"/>
+    <property name="user.name" value="HuaXW"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.15+6"/>
+    <property name="localRepository" value="C:\Users\HuaXW\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\HuaXW\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="17.0.15"/>
+    <property name="user.dir" value="D:\Study-hxw\Project\1699分布式微服务\services\product-service"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="39692"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="GBK"/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\HuaXW\.kiro\extensions\vadimcn.vscode-lldb-1.12.0\bin;C:\xmapp\ZenTao\zbox\nssm\win64;C:\ZenTao\zbox\nssm\win64;c:\Users\HuaXW\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files (x86)\Microsoft\Edge\Application;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;c:\Users\HuaXW\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files (x86)\Microsoft\Edge\Application;D:\python\Scripts\;D:\python\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\mingw64\bin;C:\doxygen-1.10.0.windows.x64.bin;C:\Graphviz\bin;C:\dowand\windows_10_msbuild_Release_graphviz-9.0.0-win32\Graphviz\bin;C:\dowand\doxygen-1.10.0.windows.x64.bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Windows\System32\Wbem;C:\Program Files (x86)\Prince\engine\bin;C:\Program Files\IBM\SPSSOEM\ODBC81\Dri;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\Program Files\Git\bin;C:\Program Files\Git\cmd;C:\apache-maven-3.9.11\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Go\bin;C:\Users\HuaXW\AppData\Roaming\TinyTeX\bin\windows;C:\Users\HuaXW\AppData\Local\Programs\oh-my-posh\bin\;C:\Users\HuaXW\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.1.1\bin;D:\pycharm\PyCharm 2024.1.1\bin;C:\Windows\System32\Wbem;C:\Users\HuaXW\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\CLion 2024.3.4\bin;C:\Users\HuaXW\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\HuaXW\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd;C:\Users\HuaXW\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\HuaXW\AppData\Local\Programs\Windsurf\bin;C:\Users\HuaXW\go\bin;C:\Go\bin;C:\Program Files\CMake\bin;C:\Program Files\Graphviz-12.2.1-win64\bin;C:\Users\HuaXW\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\HuaXW\AppData\Roaming\npm;C:\Users\HuaXW\AppData\Local\Programs\Antigravity\bin;C:\Users\HuaXW\AppData\Local\Programs\superfile\;C:\Users\HuaXW\AppData\Local\Microsoft\WindowsApps\oh-my-posh.exe;C:\Users\HuaXW\AppData\Local\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe;C:\Users\HuaXW\AppData\Local\Microsoft\WindowsApps;C:\fastfetch-windows-amd64;C:\Users\HuaXW\bin;C:\Users\HuaXW\AppData\Local\Programs\Kiro\bin;C:\Users\HuaXW\go\bin;C:\tools\apache-jmeter-5.6.3\bin;C:\Windows\System32;c:\Users\HuaXW\.kiro\extensions\vscjava.vscode-java-debug-0.58.4-universal\bundled\scripts\noConfigScripts;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.15+6"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[product-service] "/>
+  </properties>
+  <testcase name="stockDecrementIsAtomic" classname="com.cqu.marketplace.product.StockAtomicityPropertyTest" time="1.213">
+    <system-out><![CDATA[17:15:14.098 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.cqu.marketplace.product.StockAtomicityPropertyTest]: StockAtomicityPropertyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:15:14.247 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.cqu.marketplace.product.ProductServiceApplication for test class com.cqu.marketplace.product.StockAtomicityPropertyTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.1)
+
+2026-01-02T17:15:14.851+08:00  INFO 39692 --- [product-service] [           main] c.c.m.p.StockAtomicityPropertyTest       : Starting StockAtomicityPropertyTest using Java 17.0.15 with PID 39692 (started by HuaXW in D:\Study-hxw\Project\1699分布式微服务\services\product-service)
+2026-01-02T17:15:14.852+08:00 DEBUG 39692 --- [product-service] [           main] c.c.m.p.StockAtomicityPropertyTest       : Running with Spring Boot v3.2.1, Spring v6.1.2
+2026-01-02T17:15:14.853+08:00  INFO 39692 --- [product-service] [           main] c.c.m.p.StockAtomicityPropertyTest       : The following 1 profile is active: "test"
+2026-01-02T17:15:16.342+08:00  INFO 39692 --- [product-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-02T17:15:16.661+08:00  INFO 39692 --- [product-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-02T17:15:16.663+08:00  INFO 39692 --- [product-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+Initialization Sequence datacenterId:1 workerId:24
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.5 
+2026-01-02T17:15:18.714+08:00  INFO 39692 --- [product-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-01-02T17:15:18.881+08:00  INFO 39692 --- [product-service] [           main] c.c.m.p.StockAtomicityPropertyTest       : Started StockAtomicityPropertyTest in 4.397 seconds (process running for 5.682)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53551fef] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1015958146 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO product ( seller_id, name, description, price, image_url, category, stock, status, created_at, updated_at ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 测试商品-1767345319833(String), 测试描述(String), 99.99(BigDecimal), /uploads/test.jpg(String), 测试分类(String), 1(Integer), ON_SALE(String), 2026-01-02T17:15:19.897541300(LocalDateTime), 2026-01-02T17:15:19.900451(LocalDateTime)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53551fef]
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@150b22a3] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2646f9aa] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63e4dfb] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a8e425] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70293e22] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@214312587 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@536037843 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@2060539218 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@575704917 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@2008315391 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 1(Long)
+==> Parameters: 1(Long)
+==> Parameters: 1(Long)
+==> Parameters: 1(Long)
+==> Parameters: 1(Long)
+<==    Updates: 1
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a8e425]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2646f9aa]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70293e22]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63e4dfb]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@150b22a3]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@368ff8be] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@504924013 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: SELECT id,seller_id,name,description,price,image_url,category,stock,status,created_at,updated_at FROM product WHERE id=?
+==> Parameters: 1(Long)
+<==    Columns: ID, SELLER_ID, NAME, DESCRIPTION, PRICE, IMAGE_URL, CATEGORY, STOCK, STATUS, CREATED_AT, UPDATED_AT
+<==        Row: 1, 1, 测试商品-1767345319833, 测试描述, 99.99, /uploads/test.jpg, 测试分类, 0, SOLD, 2026-01-02 17:15:19.897541, 2026-01-02 17:15:19.983946
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@368ff8be]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fc4483f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@30912386 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: DELETE FROM product WHERE id=?
+==> Parameters: 1(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fc4483f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7fc5a558] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1123913519 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO product ( seller_id, name, description, price, image_url, category, stock, status, created_at, updated_at ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 测试商品-1767345320088(String), 测试描述(String), 99.99(BigDecimal), /uploads/test.jpg(String), 测试分类(String), 5(Integer), ON_SALE(String), 2026-01-02T17:15:20.089937(LocalDateTime), 2026-01-02T17:15:20.089937(LocalDateTime)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7fc5a558]
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@165943c8] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d9b9ae] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e73a3b9] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@535b92b6] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15ece648] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6510fa09] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d38d912] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b5fd791] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@630733962 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@280256007 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@186533733 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@413052787 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4448302f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1140797125 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@455805573 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1809258715 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34697e9b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1570530989 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1250940630 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@984520294 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6510fa09]
+==> Parameters: 2(Long)
+==> Parameters: 2(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d9b9ae]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b5fd791]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@535b92b6]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4448302f]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34697e9b]
+<==    Updates: 0
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e73a3b9]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15ece648]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d38d912]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@165943c8]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10d97b64] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@592626207 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: SELECT id,seller_id,name,description,price,image_url,category,stock,status,created_at,updated_at FROM product WHERE id=?
+==> Parameters: 2(Long)
+<==    Columns: ID, SELLER_ID, NAME, DESCRIPTION, PRICE, IMAGE_URL, CATEGORY, STOCK, STATUS, CREATED_AT, UPDATED_AT
+<==        Row: 2, 1, 测试商品-1767345320088, 测试描述, 99.99, /uploads/test.jpg, 测试分类, 0, SOLD, 2026-01-02 17:15:20.089937, 2026-01-02 17:15:20.093726
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10d97b64]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7efba9b9] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1267523139 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: DELETE FROM product WHERE id=?
+==> Parameters: 2(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7efba9b9]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34c6b52e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@116901088 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO product ( seller_id, name, description, price, image_url, category, stock, status, created_at, updated_at ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 测试商品-1767345320099(String), 测试描述(String), 99.99(BigDecimal), /uploads/test.jpg(String), 测试分类(String), 10(Integer), ON_SALE(String), 2026-01-02T17:15:20.099276300(LocalDateTime), 2026-01-02T17:15:20.099276300(LocalDateTime)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34c6b52e]
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73eac234] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@400a4f3e] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d6a8762] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4038f408] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f4440fc] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b1464e7] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a1d4e7] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6af8c517] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56e4fbbc] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5be979f8] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d9df8e] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f7bb3bd] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ba604cc] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1325335167 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1403876031 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1181102979 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fce968d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1681860152 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@2132684741 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1102861346 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1429118197 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1322101071 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1904451940 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24d33bb6] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75aba571] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1976800757 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31662d0b] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a77e5ad] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90a329d] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+==> Parameters: 3(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f6598f0] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+==> Parameters: 3(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48a1d4e7]
+JDBC Connection [HikariProxyConnection@1700915144 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 1
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6af8c517]
+==> Parameters: 3(Long)
+JDBC Connection [HikariProxyConnection@1101164396 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f7bb3bd]
+JDBC Connection [HikariProxyConnection@1007691778 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f6598f0]
+==> Parameters: 3(Long)
+JDBC Connection [HikariProxyConnection@259351175 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5be979f8]
+JDBC Connection [HikariProxyConnection@1478692624 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4038f408]
+JDBC Connection [HikariProxyConnection@1067566423 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a77e5ad]
+JDBC Connection [HikariProxyConnection@130932172 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b1464e7]
+JDBC Connection [HikariProxyConnection@2070693300 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56e4fbbc]
+JDBC Connection [HikariProxyConnection@285833988 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31662d0b]
+JDBC Connection [HikariProxyConnection@706003292 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+==> Parameters: 3(Long)
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73eac234]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d6a8762]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90a329d]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24d33bb6]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d9df8e]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fce968d]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75aba571]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f4440fc]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ba604cc]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@400a4f3e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9cfcde] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@792492836 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: SELECT id,seller_id,name,description,price,image_url,category,stock,status,created_at,updated_at FROM product WHERE id=?
+==> Parameters: 3(Long)
+<==    Columns: ID, SELLER_ID, NAME, DESCRIPTION, PRICE, IMAGE_URL, CATEGORY, STOCK, STATUS, CREATED_AT, UPDATED_AT
+<==        Row: 3, 1, 测试商品-1767345320099, 测试描述, 99.99, /uploads/test.jpg, 测试分类, 0, SOLD, 2026-01-02 17:15:20.099276, 2026-01-02 17:15:20.105121
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9cfcde]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dbd70fd] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@750074876 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: DELETE FROM product WHERE id=?
+==> Parameters: 3(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dbd70fd]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@779448b8] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1002305589 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO product ( seller_id, name, description, price, image_url, category, stock, status, created_at, updated_at ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 测试商品-1767345320109(String), 测试描述(String), 99.99(BigDecimal), /uploads/test.jpg(String), 测试分类(String), 20(Integer), ON_SALE(String), 2026-01-02T17:15:20.110075400(LocalDateTime), 2026-01-02T17:15:20.110075400(LocalDateTime)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@779448b8]
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49a8e09e] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cc42822] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ab1b962] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e66eea8] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26582425] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16746456] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fd1c5f] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e55b000] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2768229e] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@627e1321] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@681561758 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1198458843 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fbc795a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@414423272 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@293307613 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71e6b973] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1824125214 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1912854986 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@188408464 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@815859476 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37653916] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1148608068 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+Creating a new SqlSession
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a478ddc] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+JDBC Connection [HikariProxyConnection@278023610 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48b26e37] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2eab8ad5] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26d3cecf] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f62e587] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4accff0d] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af80620] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16746456]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@699385859 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c8c0f26] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fd1c5f]
+==> Parameters: 4(Long)
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@2132891967 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f05772f] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fbc795a]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@966971786 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1544122a] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71e6b973]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@343961828 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b1ed203] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@627e1321]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1182112081 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68867851] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26582425]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@543977840 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ca04f55] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37653916]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@672408677 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d9d5266] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e55b000]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14addb70] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1638204955 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26d3cecf]
+JDBC Connection [HikariProxyConnection@1141577764 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c2ba5bf] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2eab8ad5]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@608173327 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2453e1a5] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48b26e37]
+JDBC Connection [HikariProxyConnection@1502515923 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@424a0547] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4accff0d]
+JDBC Connection [HikariProxyConnection@1242032299 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4034947d] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+==> Parameters: 4(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af80620]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20006d50] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1346801382 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a478ddc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10bfe6ac] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1042043652 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1544122a]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@763689765 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ccc4b1d] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b1ed203]
+JDBC Connection [HikariProxyConnection@1772274853 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af55895] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ab1b962]
+JDBC Connection [HikariProxyConnection@2023742385 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4049d212] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49a8e09e]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1370441601 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43508bee] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ca04f55]
+JDBC Connection [HikariProxyConnection@1764306526 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ebcbcb8] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f05772f]
+==> Parameters: 4(Long)
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1632729931 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d9d5266]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cc42822]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f50a50] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@122196842 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f62e587]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c2ba5bf]
+JDBC Connection [HikariProxyConnection@87429663 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@763c4352] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@2072461916 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+Creating a new SqlSession
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51b43002] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1438481119 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@659a8ef7] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2768229e]
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+Creating a new SqlSession
+==> Parameters: 4(Long)
+JDBC Connection [HikariProxyConnection@1641840437 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9049ee] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 0
+<==    Updates: 0
+<==    Updates: 0
+==> Parameters: 4(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@424a0547]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f50a50]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10bfe6ac]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4034947d]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14addb70]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f9ffe0c] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@258477653 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@88822911 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28afb123] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1484875983 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73b224d9] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ccc4b1d]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66acf03d] was not registered for synchronization because synchronization is not active
+==> Parameters: 4(Long)
+Creating a new SqlSession
+==> Parameters: 4(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54bce466] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1679977755 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 4(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68867851]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62c93804] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@707270628 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+==> Parameters: 4(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e66eea8]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2453e1a5]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ebcbcb8]
+==> Parameters: 4(Long)
+<==    Updates: 0
+<==    Updates: 0
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1477050717 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@859755505 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af55895]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4049d212]
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1754448440 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1236091875 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f9ffe0c]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73b224d9]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c8c0f26]
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+JDBC Connection [HikariProxyConnection@880367146 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 4(Long)
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@106040800 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51b43002]
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@812216745 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@546835488 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1694693172 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1614042746 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@763c4352]
+==> Parameters: 4(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66acf03d]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+<==    Updates: 0
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28afb123]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9049ee]
+==> Parameters: 4(Long)
+==> Parameters: 4(Long)
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@659a8ef7]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62c93804]
+<==    Updates: 0
+<==    Updates: 0
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54bce466]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43508bee]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20006d50]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a14ab66] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1417153600 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: SELECT id,seller_id,name,description,price,image_url,category,stock,status,created_at,updated_at FROM product WHERE id=?
+==> Parameters: 4(Long)
+<==    Columns: ID, SELLER_ID, NAME, DESCRIPTION, PRICE, IMAGE_URL, CATEGORY, STOCK, STATUS, CREATED_AT, UPDATED_AT
+<==        Row: 4, 1, 测试商品-1767345320109, 测试描述, 99.99, /uploads/test.jpg, 测试分类, 0, SOLD, 2026-01-02 17:15:20.110075, 2026-01-02 17:15:20.120852
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a14ab66]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12811f95] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@110041993 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: DELETE FROM product WHERE id=?
+==> Parameters: 4(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12811f95]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d1f3639] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1851471426 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO product ( seller_id, name, description, price, image_url, category, stock, status, created_at, updated_at ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 测试商品-1767345320128(String), 测试描述(String), 99.99(BigDecimal), /uploads/test.jpg(String), 测试分类(String), 50(Integer), ON_SALE(String), 2026-01-02T17:15:20.129391900(LocalDateTime), 2026-01-02T17:15:20.129391900(LocalDateTime)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d1f3639]
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d455e7a] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@165ffe21] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14bf9bb4] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98ed36] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cea1be] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70743536] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ee009e9] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31787f7] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2835c642] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ca4c605] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70878085] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1132636578 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@653405492 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@151605047 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@412615322 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1650669025 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@444102483 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@324993269 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12522e0e] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1076362821 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23656ad] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@231762405 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28e2a5ab] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@2118148325 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@571163a0] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e107092] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@684f4f73] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4532367b] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c70c6c2] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c23b66e] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@165ffe21]
+JDBC Connection [HikariProxyConnection@2125714760 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 1
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cea1be]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ca79551] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@479580724 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d36cace] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d455e7a]
+JDBC Connection [HikariProxyConnection@639983303 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47bd350a] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70743536]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a8c5e46] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@217168027 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31787f7]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1507231538 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9efec87] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98ed36]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17608646] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1893171488 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14bf9bb4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e47f0c4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1720232970 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23656ad]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8ce3ddd] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1274396845 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e107092]
+JDBC Connection [HikariProxyConnection@313998140 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74e81be2] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4532367b]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@585391514 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fca5d0b] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@571163a0]
+JDBC Connection [HikariProxyConnection@1503987873 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5de908d0] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ee009e9]
+JDBC Connection [HikariProxyConnection@1211385100 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44186299] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28e2a5ab]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@221acedb] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@46113689 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c70c6c2]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1688adb2] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1066327923 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@684f4f73]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47bd350a]
+JDBC Connection [HikariProxyConnection@1290626014 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1382157006 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@656e8b3a] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62b72403] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ca4c605]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1531280744 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@665cad75] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9efec87]
+JDBC Connection [HikariProxyConnection@1305260704 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73fa7d8b] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a8c5e46]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e028031] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@837454619 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70878085]
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@180931222 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a7febf5] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ca79551]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@418090249 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30e24b42] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74e81be2]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c83e954] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@18543742 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17608646]
+==> Parameters: 5(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8c9ace9] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1729647868 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fca5d0b]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1401565447 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e9db45a] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5de908d0]
+Creating a new SqlSession
+<==    Updates: 1
+JDBC Connection [HikariProxyConnection@863494540 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44bbe1d7] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44186299]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@666215985 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ffb0af5] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c23b66e]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@593379290 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26dbdd1e] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@656e8b3a]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@2112597328 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d4c978d] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12522e0e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18aa457e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@251330860 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e47f0c4]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1065183966 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@334f2f8f] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@665cad75]
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@1748374294 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6980515a] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d36cace]
+JDBC Connection [HikariProxyConnection@1163109 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a05dee5] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30e24b42]
+JDBC Connection [HikariProxyConnection@1668963757 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@489b0e5c] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a7febf5]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e028031]
+JDBC Connection [HikariProxyConnection@990439308 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7332461c] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@169d00db] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1688adb2]
+JDBC Connection [HikariProxyConnection@699994469 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@235427799 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4956bb62] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c83e954]
+JDBC Connection [HikariProxyConnection@1675188129 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3492838e] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@221acedb]
+JDBC Connection [HikariProxyConnection@1653628118 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aea7a49] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7332461c]
+JDBC Connection [HikariProxyConnection@1571346447 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bad25a0] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44bbe1d7]
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18aa457e]
+JDBC Connection [HikariProxyConnection@1783891034 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e09bfea] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c03230a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@314031542 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62b72403]
+JDBC Connection [HikariProxyConnection@2033602149 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@35134163] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6980515a]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@965408750 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11838d90] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26dbdd1e]
+JDBC Connection [HikariProxyConnection@819007641 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52f80d72] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 1
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@489b0e5c]
+JDBC Connection [HikariProxyConnection@1604395068 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b1013c6] was not registered for synchronization because synchronization is not active
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a05dee5]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1645414319 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42ed8b37] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8ce3ddd]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1371894868 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d7f068a] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@169d00db]
+JDBC Connection [HikariProxyConnection@1454757045 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d830f1] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2835c642]
+JDBC Connection [HikariProxyConnection@1599247761 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22cdad32] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+<==    Updates: 1
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ffb0af5]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3492838e]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@334f2f8f]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bad25a0]
+Creating a new SqlSession
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25ffe71] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2026140230 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bb40804] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+Creating a new SqlSession
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37dab0b0] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aea7a49]
+JDBC Connection [HikariProxyConnection@1816117869 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e312ac1] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1630866225 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22ada4ae] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1131528341 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@383271735 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c03230a]
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e09bfea]
+==> Parameters: 5(Long)
+Creating a new SqlSession
+Creating a new SqlSession
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63ea81d0] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@672905795 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2674fb21] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1130765585 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11838d90]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1032267584 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e9db45a]
+<==    Updates: 0
+==> Parameters: 5(Long)
+<==    Updates: 0
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37dab0b0]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@35134163]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28904320] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1937553159 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26b7c7e3] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1741629199 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+<==    Updates: 0
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2674fb21]
+JDBC Connection [HikariProxyConnection@124060041 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d94fad3] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b1013c6]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768e0940] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42ed8b37]
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1793537497 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1201297790 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2e6239f5] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d4c978d]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@539f02cf] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1021098750 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c7dab53] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@1036298965 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4956bb62]
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28904320]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d830f1]
+==> Parameters: 5(Long)
+<==    Updates: 0
+Creating a new SqlSession
+<==    Updates: 0
+Creating a new SqlSession
+Creating a new SqlSession
+<==    Updates: 0
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2e6239f5]
+<==    Updates: 0
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73363ce5] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d94fad3]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26b7c7e3]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d99ea6b] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a87e3f8] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@539f02cf]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d70f3b7] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1542429476 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@596b63bb] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68ad00b7] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@1195376469 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26d11088] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@969506430 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1437339606 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@2004062175 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+<==    Updates: 0
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d70f3b7]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d99ea6b]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1391497786 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@65b5523] was not registered for synchronization because synchronization is not active
+<==    Updates: 0
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1594426460 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52f80d72]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26d11088]
+<==    Updates: 0
+<==    Updates: 0
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22cdad32]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c7dab53]
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3fd47710] was not registered for synchronization because synchronization is not active
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73fa7d8b]
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@623102877 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@1917543487 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@996835879 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8c9ace9]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a3b9657] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+Creating a new SqlSession
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@688274274 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61cefa62] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e0ee6d6] was not registered for synchronization because synchronization is not active
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59e90635] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@66496750 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@1457709282 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3125d362] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+JDBC Connection [HikariProxyConnection@1711565248 wrapping conn9: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+Creating a new SqlSession
+JDBC Connection [HikariProxyConnection@1010313070 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b16edbe] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@703ba532] was not registered for synchronization because synchronization is not active
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a3b9657]
+<==    Updates: 0
+<==    Updates: 0
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a87e3f8]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61cefa62]
+JDBC Connection [HikariProxyConnection@2143410318 wrapping conn4: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@743794409 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3fd47710]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e312ac1]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@596b63bb]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4bb40804]
+<==    Updates: 0
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68ad00b7]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@65b5523]
+JDBC Connection [HikariProxyConnection@121088947 wrapping conn8: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@866504264 wrapping conn5: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@2093702366 wrapping conn7: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@750951569 wrapping conn3: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59e90635]
+JDBC Connection [HikariProxyConnection@843969921 wrapping conn1: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73363ce5]
+JDBC Connection [HikariProxyConnection@1315146448 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+==> Parameters: 5(Long)
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3125d362]
+JDBC Connection [HikariProxyConnection@255361992 wrapping conn2: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==> Parameters: 5(Long)
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+JDBC Connection [HikariProxyConnection@45713137 wrapping conn6: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+<==    Updates: 0
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+<==    Updates: 0
+==> Parameters: 5(Long)
+Creating a new SqlSession
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@703ba532]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d7f068a]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22ada4ae]
+<==    Updates: 0
+<==    Updates: 0
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1177b67f] was not registered for synchronization because synchronization is not active
+==> Parameters: 5(Long)
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768e0940]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b16edbe]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25ffe71]
+<==    Updates: 0
+JDBC Connection [HikariProxyConnection@1195411241 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e0ee6d6]
+==>  Preparing: UPDATE product SET stock = stock - 1, status = CASE WHEN stock - 1 = 0 THEN 'SOLD' ELSE status END, updated_at = NOW() WHERE id = ? AND stock > 0 AND status = 'ON_SALE'
+==> Parameters: 5(Long)
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63ea81d0]
+<==    Updates: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1177b67f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d33795c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2006906315 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: SELECT id,seller_id,name,description,price,image_url,category,stock,status,created_at,updated_at FROM product WHERE id=?
+==> Parameters: 5(Long)
+<==    Columns: ID, SELLER_ID, NAME, DESCRIPTION, PRICE, IMAGE_URL, CATEGORY, STOCK, STATUS, CREATED_AT, UPDATED_AT
+<==        Row: 5, 1, 测试商品-1767345320128, 测试描述, 99.99, /uploads/test.jpg, 测试分类, 0, SOLD, 2026-01-02 17:15:20.129392, 2026-01-02 17:15:20.158527
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d33795c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d9d8ecf] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1137473873 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring
+==>  Preparing: DELETE FROM product WHERE id=?
+==> Parameters: 5(Long)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d9d8ecf]
+]]></system-out>
+  </testcase>
+</testsuite>
