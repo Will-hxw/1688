@@ -274,32 +274,7 @@ services:
       retries: 3
       start_period: 60s
     restart: unless-stopped
-
-  # ==================== 原单体应用（保留作为参考，默认禁用） ====================
-  
-  # 原单体后端（可选启用）
-  # backend:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   container_name: cqu-marketplace-backend
-  #   ports:
-  #     - "8081:8080"
-  #   environment:
-  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-cqu_marketplace}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-  #     - SPRING_DATASOURCE_USERNAME=${MYSQL_USER:-root}
-  #     - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD:-root}
-  #     - SPRING_DATA_REDIS_HOST=redis
-  #     - SPRING_DATA_REDIS_PORT=6379
-  #     - SPRING_DATA_REDIS_PASSWORD=${REDIS_PASSWORD:-}
-  #     - JWT_SECRET=${JWT_SECRET:-cqu-marketplace-secret-key-must-be-at-least-256-bits-long-for-hs256}
-  #     - UPLOAD_PATH=/app/uploads
-  #   volumes:
-  #     - ./uploads:/app/uploads
-  #   networks:
-  #     - cqu-network
-  #   restart: unless-stopped
-
+    
 networks:
   cqu-network:
     driver: bridge
